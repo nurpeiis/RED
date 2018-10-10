@@ -5,7 +5,7 @@
 {% endblock %}
 {% block body %}
 <main role="main">
-  <header class="masthead text-center text-white d-flex">
+  <header class="masthead text-center d-flex">
        <div class="container my-auto">
          <div class="row">
            <div class="col-lg-10 mx-auto">
@@ -70,6 +70,15 @@
          </div>
        </div>
      </section>
+     <div class = "container">
+        <hr class="my-4">
+       <h2>Choose Your Interests</h2>
+       <form method = "post">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <button class="btn btn-lg btn-warning btn-block" type="submit">Submit</button>
+       </form>
+     </div>
 <!--Nurpeiis Baimukan-->
 </main>
 {% endblock %}

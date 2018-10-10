@@ -31,6 +31,10 @@ Instructions:
     - in RED/urls.py add the link for new app
     - in appName/ create urls.py file
 3. Github commit:
-    1. git add. 
+    1. git add . 
     2. git commit -m ""
     3. git push
+4. Creating forms:
+    1. create forms.py file within an app directory
+    2. in forms.py create a class for the forma
+    3. use this class from form in views.py

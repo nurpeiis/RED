@@ -1,5 +1,5 @@
 #this is urls for accounts page, for each user
-from django.urls import include, re_path, path
+from django.urls import include,  path
 from . import views
 from django.contrib.auth.views import (
     LoginView, 
