@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>RED|Profile</title>
+{% endblock %}
+{% block body %}
+<!--User information-->
+<div class = "container">
+    <p>
+       Username: {{ user }} 
+    </p>
+    <p>
+        First name: {{ user.first_name }}
+    </p>
+    <p>
+        Last name: {{ user.last_name }}
+    </p>
+    <p>
+        Email: {{ user.email }}
+    </p>
+    <p>
+        Description: {{ user.userprofile.description }}
+    </p>
+    <p>
+        City: {{ user.userprofile.city }}
+    </p>
+    <p>
+        Website: {{ user.userprofile.website }}
+    </p>
+    <p>
+       Phone: {{ user.userprofile.phone }}
+    </p>
+    <p>
+        Organization: {{ user.userprofile.organization }}
+    </p>
+    <p>
+        Profile Image: 
+    </p>
+    <img src = "{{ user.userprofile.image.url }}" width ="240" >
+    
+</div>
+
+{% endblock %}
