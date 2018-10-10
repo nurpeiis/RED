@@ -27,3 +27,10 @@ Instructions:
     - django-admin runserver
 2. To create new app:
     - django-admin startapp appName 
+    - add to settings file in Installed app
+    - in RED/urls.py add the link for new app
+    - in appName/ create urls.py file
+3. Github commit:
+    1. git add. 
+    2. git commit -m ""
+    3. git push
