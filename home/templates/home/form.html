@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>RED|FORM</title>
+{% endblock %}
+{% block body %}
+<div class = "container">
+  <hr class="my-4">
+  <h1>Choose Your Interests</h1>
+  <form method = "post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-lg btn-warning btn-block" type="submit">Submit</button>
+  </form>
+  <h2> {{ text }}</h2>
+  <!--{% for post in posts %}
+    <h1> {{ post.post }}</h1>
+    <p> Posted by {{ post.user }} on {{ post.date }}</p>
+  {% endfor %}-->
+</div>
+{% endblock %}
+
+
+
+
+
