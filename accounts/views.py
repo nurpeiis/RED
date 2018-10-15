@@ -24,8 +24,15 @@ def register (request):
 #login required to view certain pages
 
 #profile page
-def view_profile (request):
-    args = {'user': request.user}
+#primary key is optional 
+def view_profile (request, pk=None):
+    #to view other people's profile
+    #pk = primary key
+    if pk:
+        user = User.objects.get(pk=pk)
+    else:
+        user = request.user
+    args = {'user': user}
     return render (request, 'accounts/profile.html', args)
 
 
