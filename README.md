@@ -37,7 +37,12 @@
 5. To test email run:
 python -m smtpd -n -c DebuggingServer localhost:1025
 https://stackoverflow.com/questions/5802189/django-errno-111-connection-refused/5802348#5802348
-
+6. To run through django-admin command:
+    1. check django setting module: env | grep DJANGO_SETTINGS_MODULE
+    2. export the path: export DJANGO_SETTINGS_MODULE=RED.settings.dev or prod
+    3. export PYTHONPATH = "/Users/nurpeiis/Desktop/RED_Co-LAB/RED"
+7. Requirements:
+    1. pip install -r RED/requirements/dev.txt
 Created by Nurpeiis Baimukan on 9/19/18.
 
 Copyright © 2018 Nurpeiis Baimukan. All rights reserved.
