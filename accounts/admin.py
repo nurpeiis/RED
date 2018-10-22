@@ -3,7 +3,7 @@ from django.contrib import admin
 from accounts.models import UserProfile
 
 # Register your models here.
-admin.site.register(UserProfile)
+
 
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'user_info', 'phone', 'organization')
@@ -20,5 +20,5 @@ class UserProfileAdmin(admin.ModelAdmin):
         queryset = queryset.order_by ('-phone')
         return queryset
 #use new model for User Profile
-admin.site.unregister(UserProfile)
+
 admin.site.register(UserProfile, UserProfileAdmin)

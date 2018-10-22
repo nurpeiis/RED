@@ -1,0 +1,178 @@
+html,body{
+height: 100%;
+width: 100%;
+}
+/*
+.navbar{
+    background-color: #E6CEBC;
+    padding: 1% 0;
+    font-size:1.2em;
+
+}
+
+a{
+    color: #FEFFFF;
+}
+a:hover{
+    color:#DEF2F1;
+}
+.navbar-brand{
+    min-height:55px;
+    padding:0 15px 5px;
+}*/
+header.masthead.btn{
+  color:green;
+}
+body {
+  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+}
+/*header*/
+header.masthead {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 56px);
+  background-image: url("campus.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+header.masthead hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+header.masthead h1 {
+  font-size: 2rem;
+}
+
+header.masthead p {
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  header.masthead p {
+    font-size: 1.15rem;
+  }
+}
+
+@media (min-width: 992px) {
+  header.masthead {
+    height: 100vh;
+    min-height: 650px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  header.masthead h1 {
+    font-size: 4rem;
+  }
+}
+
+#services{
+    padding:80px 30px;
+    background-color: #F5F6F8;
+}
+#services h2{
+    text-align: center;
+    font-size: 200%;
+    font-weight:700;
+}
+#services img{
+    width: 30%;
+    height:50%;
+}
+#testimonials
+{
+    padding:80px 30px;
+    background-color: #F5F6F8;
+
+}
+#featuredArticles{
+    padding:80px 30px;
+    background-color:#F5F6F8;
+}
+#featuredArticles img{
+    width: 100%;
+    height:50%;
+}
+#fixed{
+    background: url(../Images/mentorshipquote.jpg) no-repeat center center fixed;
+    display:table;
+    height: 60%;
+    position:relative;
+    width:100%;
+    background-size: cover;
+}
+#create{
+    background :linear-gradient(rgba(255, 255 ,255 , .5), rgba(255, 255 ,255 , .5)), url(../Images/mentorshipquote.jpg) no-repeat center center fixed;
+    padding: 20px;
+    background-size: cover;
+}
+#create h1{
+    text-align: center;
+    font-size: 300%;
+    color: black;
+}
+#create p{
+    color: black;
+    font-size: 150%;
+    font-weight: 400;
+}
+
+
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+    text-align: center;
+
+
+}
+footer{
+    width:100%;
+    background-color: #353A3F;
+    padding:5% 5% 10% 5%;
+    color:#FFF;
+}
+footer a{
+    font-size: 15px;
+    color: #fff;
+}
+footer a:hover{
+    color: #D5D5D5;
+}
+.fa{
+   padding:15px;
+    font-size:25px;
+}
+.fa:hover{
+    color: #D5D5D5;
+    text-decoration: none;
+}
+footer img{
+    width:20px;
+}
+
+@media (width:768px){
+    #featuredArticles img{
+        align-content: center;
+    }
+    .landing-text h1{
+        font-size: 300%;
+    }
+    .fa {
+        font-size:20px;
+        padding:10px;
+    }
+    footer img{
+        width:10px;
+    }
+}

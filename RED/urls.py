@@ -27,3 +27,4 @@ urlpatterns = [
     path('account/', include('accounts.urls', namespace = 'accounts')), #take the urls from accounts folder
     path('home/', include('home.urls', namespace = 'home')), #take the urls from accounts folder
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+

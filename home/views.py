@@ -2,14 +2,14 @@ from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 
-from home.forms import HomeForm
-from home.models import Post 
+from home.forms import HomeForm, NYUADInterestForm
+from home.models import Post, StageOneInterestsPost
 class HomeView(TemplateView):
     template_name = 'home/home.html'
 
 
 class FormView(TemplateView):
-    template_name = 'home/form.html'
+    template_name = 'home/form_1.html'
 
     def get(self, request):
         #blank if you refresh the page
@@ -32,3 +32,17 @@ class FormView(TemplateView):
             return redirect ('home:form')
         args = {'form': form, 'text': text}   
         return render(request, self.template_name, args)
+
+class NewFormView(TemplateView):
+    template_name = 'home/form_1.html'
+    def post(self, request):
+        form = NYUADInterestForm(request.POST)
+        if form.is_valid():
+            interests = form.save(commit = False)
+            interests.user = request.user
+            interests.save()#save the data in database
+            #clean something like sql injections by code cleaned_data
+            form = NYUADInterestForm()
+            return redirect ('home:form')
+         
+        return render(request, self.template_name, {'form': form})

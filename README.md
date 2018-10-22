@@ -43,6 +43,14 @@ https://stackoverflow.com/questions/5802189/django-errno-111-connection-refused/
     3. export PYTHONPATH = "/Users/nurpeiis/Desktop/RED_Co-LAB/RED"
 7. Requirements:
     1. pip install -r RED/requirements/dev.txt
+8. Hosting static files:
+    1. Inefficient in the main file in production
+    2. Use AWS
+9. To start server:
+    1. export PYTHONPATH=/Users/nurpeiis/Desktop/RED_Co-LAB/RED
+    2. export DJANGO_SETTINGS_MODULE=RED.settings.dev or prod depending on the stage
+    3. django-admin runserver
+10. Hierarchial representation of the data for form with MPTT
 Created by Nurpeiis Baimukan on 9/19/18.
 
 Copyright © 2018 Nurpeiis Baimukan. All rights reserved.
