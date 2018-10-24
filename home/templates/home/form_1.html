@@ -8,150 +8,18 @@
     <div class = "col-md-4">
         <h1>Step One</h1>
         <h2>Discover Priorities, Needs, and Expertise</h2>
-        <h3>Academics</h3>
+        {% load mptt_tags %}
         <ul>
-          <li>
-            <h4>Sciences</h4>
-            <p>Description</p>
-          </li>
-          <li>
-              <h4>Engineering</h4>
-              <p>Description</p>
-          </li>
-          <li>
-              <h4>Social Sciences</h4>
-              <p>Description</p>
-          </li>
-          <li>
-              <h4>Arts & Humanities</h4>
-              <p>Description</p>
-          </li>
-        </ul>
-        <h3>Arts and Culture</h3>
-        <ul>
-            <li>
-              <h4>The Arts Center</h4>
-              <p>Description</p>
-            </li>
-            <li>
-                <h4>The Art Gallery</h4>
-                <p>Description</p>
-            </li>
-        </ul>
-        <h3>Career Development Center</h3>
-        <ul>
-            <li>
-              <h4>Graduate Employment</h4>
-              <p>Description</p>
-            </li>
-            <li>
-                <h4>Student Internships</h4>
-                <p>Description</p>
-            </li>
-        </ul>
-        <h3>Executive Education</h3>
-        <h3>Global Education</h3>
-        <ul>
-            <li>
-              <h4>Globabl Network University</h4>
-              <p>Description</p>
-            </li>
-            <li>
-                <h4>Adult Learning</h4>
-                <p>Description</p>
-            </li>
-        </ul>
-        <h3>Health and Wellness</h3>
-        <ul>
-            <li>
-              <h4>Fitness Center</h4>
-              <p>Description</p>
-            </li>
-            <li>
-                <h4>Athletics</h4>
-                <p>Description</p>
-            </li>
-        </ul>
-        <h3>Innovation</h3>
-        <ul>
-            <li>
-              <h4>StartAD</h4>
-              <p>Description</p>
-            </li>
-            <li>
-                <h4>Engineering Design Studio</h4>
-                <p>Description</p>
-            </li>
-            <li>
-                <h4>Co-Lab</h4>
-                <ul>
-                  <li>
-                      <h5>Student Embbassy Ambassadors</h5>
-                      <p>Description</p>
-                  </li>
-                  <li>
-                      <h5>Community to Community</h5>
-                      <p>Description</p>
-                  </li>
-                  <li>
-                      <h5>Jeffersonian Dinners</h5>
-                      <p>Description</p>
-                  </li>
-                  <li>
-                      <h5>Mindcrafting with mindcraft</h5>
-                      <p>Description</p>
-                  </li>
-                  <li>
-                      <h5>Roadmaps</h5>
-                      <p>Description</p>
-                  </li>
-                </ul>
-            </li>
-            <li>
-                <h4>Interactive Media Lab</h4>
-                <p>Description</p>
-            </li>
-        </ul>
-        <h3>Research</h3>
-        <ul>
-            <li>
-              <h4>Institute</h4>
-              <p>Description</p>
-            </li>
-            <li>
-                <h4>Faculty Research</h4>
-                <p>Description</p>
-            </li>
-            <li>
-                <h4>Student Capstone Project</h4>
-                <p>Description</p>
-            </li>
-            <li>
-                <h4>Post-Graduate Research</h4>
-                <p>Description</p>
-            </li>
-        </ul>
-        <h3>Community Programs</h3>
-        <ul>
-            <li>
-              <h4>Sheikh Mohamed Scholars</h4>
-              <p>Description</p>
-            </li>
-            <li>
-                <h4>NYUAD Summer Academy</h4>
-                <p>Description</p>
-            </li>
-        </ul>
-        <h3>Student Engagement</h3>
-        <ul>
-            <li>
-              <h4>Community Service</h4>
-              <p>Description</p>
-            </li>
-            <li>
-                <h4>Student Activities</h4>
-                <p>Description</p>
-            </li>
+            {% recursetree opportunities %}
+                <li>
+                    {{ node.name }}
+                    {% if not node.is_lef_node %}
+                        <ul class = "children">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}    
         </ul>
     </div>
     <div class = "col-md-4">
@@ -163,7 +31,7 @@
       <form method = "post">
         {% csrf_token %}
         {{ form.error }}
-        {{ form.as_ul }}
+        {{ form.as_p }}
         <button class="btn btn-lg btn-warning btn-block" type="submit">Submit</button>
       </form>
     </div>

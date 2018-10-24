@@ -9,7 +9,9 @@ class StageOneInterestsAdmin(MPTTModelAdmin, admin.ModelAdmin):
     def description(self, obj):
         return obj.description
     mptt_level_indent = 20
-    description.short_description = 'Sub Set'
-admin.site.register(Post)
+class StageOneInterestsPostAdmin(admin.ModelAdmin):
+    list_display = ('user', 'created')
+    
+
 admin.site.register(StageOneInterests, StageOneInterestsAdmin,)
-admin.site.register(StageOneInterestsPost)
+admin.site.register(StageOneInterestsPost,StageOneInterestsPostAdmin)
