@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from accounts.forms import RegistrationForm, EditProfileForm
  #customized registration, edit profile forms
-from django.contrib.auth.models import User
+from accounts.models import User
 from django.contrib.auth.forms import PasswordChangeForm #ready template to change form
 from django.contrib.auth import update_session_auth_hash # make sure that user is still logged in
 #decorator- way of giving edit power
@@ -12,9 +12,11 @@ from django.contrib.auth.decorators import login_required
 def register (request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
-            return redirect('/account')
+            return redirect('/home')
+        else:
+            return redirect('/account/register')
     else:
         form = RegistrationForm()
     #take the ready form
@@ -42,8 +44,10 @@ def edit_profile (request):
     if request.method == 'POST':
         # pass user object so it knows which object it is changing 
         form = EditProfileForm(request.POST, instance = request.user)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
+            return redirect('/account/profile')
+        else:
             return redirect('/account/profile')
     # if just get
     else:

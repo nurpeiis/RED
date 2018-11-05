@@ -41,7 +41,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'RED.urls'
-
+AUTH_USER_MODEL = 'accounts.User'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

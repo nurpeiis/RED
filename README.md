@@ -18,9 +18,7 @@
     Solution: change the format of url in LOGIN_EXEMPT_URLS for password_reset_confirm
 
 ## Instructions:
-1. Run development server (pwd = print working directory):
-    - https://www.youtube.com/watch?v=DgVBKMQoQIE&index=41&list=PLw02n0FEB3E3VSHjyYMcFadtQORvl1Ssj
-    - django-admin runserver
+
 2. To create new app:
     - django-admin startapp appName 
     - add to settings file in Installed app

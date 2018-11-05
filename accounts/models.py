@@ -1,35 +1,26 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, AbstractBaseUser
 from django.db.models.signals import post_save
-
+from django.core.validators import RegexValidator
 # Create your models here.
-#Manage your backend data.
-class UserProfileManager (models.Manager):
-    def get_queryset(self):
-        return super(UserProfileManager, self).get_queryset().filter(city = 'Abu Dhabi')
-
-
-
-class UserProfile(models.Model):
-    #passing foreign key, or default model of the user when it registers
-    #adding more description to the user
-    user = models.OneToOneField(User,on_delete=models.CASCADE,)
-    description = models.CharField (max_length = 100, default = '')
-    city = models.CharField (max_length = 100, default = '')
-    website = models.URLField (default= '')
-    organization = models.CharField (max_length = 100, default = '')
-    phone = models.IntegerField(default = 0)
-    #upload_to is specific to file/image upload, because they are large, uploading is optional 
-    image = models.ImageField(upload_to = 'profile_image', blank = True)
-    london = UserProfileManager()
-    #return username in the userprofile page
+class Companies(models.Model):
+    company_name = models.CharField (max_length=50, unique=True)
     def __str__(self):
-        return self.user.username
- 
+        return self.company_name
+class User(AbstractUser):
+    organization = models.ForeignKey(Companies, on_delete = models.CASCADE, blank = False, null=False, default=1)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
+    title = models.CharField (max_length=50, blank = False, null=False, default='')
+    #upload_to is specific to file/image upload, because they are large, uploading is optional 
+    image = models.ImageField(upload_to = 'profile_image', blank = True, null=True)
+    #return username in the userprofile page
 
-def create_profile(sender, **kwargs):
-    #if the user has been created then create the User profile
-    if kwargs['created']:
-        user_profile = UserProfile.objects.create(user=kwargs['instance'])
-
-post_save.connect(create_profile, sender=User)
+    def user_model_swapped(**kwargs):
+        if kwargs['setting'] == 'AUTH_USER_MODEL':
+            apps.clear_cache()
+            from myapp import some_module
+            some_module.UserModel = get_user_model()
+    def __str__(self):
+        return self.username
+1
