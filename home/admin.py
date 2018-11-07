@@ -1,5 +1,4 @@
 from django.contrib import admin
-from home.models import Post
 from mptt.admin import MPTTModelAdmin
 from home.models import StageOneInterests, StageOneInterestsPost
 # Register your models here.
