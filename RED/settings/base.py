@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mptt',
     'multiselectfield',
+    'crispy_forms', #required for bootstrap forms application
 ]
 
 MIDDLEWARE = [
@@ -100,7 +101,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
+# Required for appealing form
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATIC_URL = '/static/'
  
 MEDIA_URL = '/media/'
@@ -108,11 +110,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'RED/media')
 #RED page
 LOGIN_REDIRECT_URL = '/home/'
 
-HOME_URL = '/home/'
-LOGIN_URL = '/account/login/'
+LOGIN_URL = '/home/not-auth/'
 #pages that won't be seen if the user is logged in
 LOGIN_EXEMPT_URLS = [
-    r'^home/not-auth/$',
+    r'^account/login/$',
     r'^account/logout/$',
     r'^account/register/$',
     r'^account/reset-password/$',
