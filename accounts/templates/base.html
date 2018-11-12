@@ -16,19 +16,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   
        <!-- Required meta tags -->
+    
     <meta charset="utf-8">
     <meta name="keywords" content="Community, Engagement, University, Student, New York University Abu Dhabi, ">
     <meta name="description" content="Connect the community of New York University Abu Dhabi with External Partners through effective matching of interception points">
     <meta name="author" content="Nurpeiis Baimukan">
-    <meta http-equiv="refresh" content="30">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+
     {% block head %}
     <title>RED|Base</title>
     {% endblock %}
   </head>
   <!--Navigation-->
+ 
   {% block navigation %}
+  {% if user.is_authenticated %}
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="{% url 'home:home' %}">
     <img src="{% static 'REDLogo.png' %}" width="40" height="30" alt="">
@@ -38,7 +40,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
     <!--Give the user logged in it would have different navigation bar than is he/she is not-->
-    {% if user.is_authenticated %}
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="{% url 'home:home' %}">Home<span class="sr-only">(current)</span></a>
@@ -62,7 +63,18 @@
         </li>
       </ul>
     {% else %}
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{% url 'home:home_notauth' %}">
+        <img src="{% static 'REDLogo.png' %}" width="40" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">    
       <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:home_notauth' %}">Home<span class="sr-only">(current)</span></a>
+          </li>
           <li class="nav-item">
               <a class="nav-link" href="{% url 'accounts:password_reset' %}">Reset Password</a>
           </li>

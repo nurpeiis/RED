@@ -106,11 +106,13 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'RED/media')
 #RED page
-LOGIN_REDIRECT_URL = '/home'
+LOGIN_REDIRECT_URL = '/home/'
 
+HOME_URL = '/home/'
 LOGIN_URL = '/account/login/'
-
+#pages that won't be seen if the user is logged in
 LOGIN_EXEMPT_URLS = [
+    r'^home/not-auth/$',
     r'^account/logout/$',
     r'^account/register/$',
     r'^account/reset-password/$',

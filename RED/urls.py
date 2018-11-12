@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.login_redirect, name = 'login_redirect'), #redirect to login page if just website name is written
+    path('', views.home_redirect, name = 'home_redirect'), #redirect to home page if just website name is written
     path('admin/', admin.site.urls),
     #namespace give opportunity to use same name in different apps
     path('account/', include('accounts.urls', namespace = 'accounts')), #take the urls from accounts folder
