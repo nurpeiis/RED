@@ -49,6 +49,8 @@ https://stackoverflow.com/questions/5802189/django-errno-111-connection-refused/
     2. export DJANGO_SETTINGS_MODULE=RED.settings.dev or prod depending on the stage
     3. django-admin runserver
 10. Hierarchial representation of the data for form with MPTT
+11. Notes not to forget:
+    - Purchase license single from bootstrapmade: https://bootstrapmade.com/license/
 Created by Nurpeiis Baimukan on 9/19/18.
 
 Copyright © 2018 Nurpeiis Baimukan. All rights reserved.

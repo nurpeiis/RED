@@ -1,26 +1,203 @@
 {% extends 'base.html' %}
-{% block head %}
+{% load static from staticfiles %}
+{% block title %}
 <title>RED|Home</title>
 {% endblock %}
 {% block body %}
 <main role="main">
   <!--Home view will have different views for unathenticated and authenticated users-->
-    <header class="masthead text-center text-white d-flex ">
-        <div class="container my-auto">
-          <div class="row">
-            <div class="col-lg-10 mx-auto">
-              <h1 class="text-uppercase">
-                <strong>ROADMAP ENGAGEMENT DESIGN</strong>
-              </h1>
-              <hr>
+  <section id="featured">
+    <!-- start slider -->
+    <!-- Slider -->
+    <div id="nivo-slider">
+      <div class="nivo-slider">
+        <!-- Slide #1 image -->
+        <img src="{% static 'img/slides/nivo/campus.jpg' %}" alt="" title="#caption-1" />
+        <!-- Slide #2 image -->
+        <img src="{% static 'img/slides/nivo/bg-2.jpg' %}" alt="" title="#caption-2" />
+        <!-- Slide #3 image -->
+        <img src="{% static 'img/slides/nivo/bg-3.jpg' %}" alt="" title="#caption-3" />
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <!-- Slide #1 caption -->
+            <div class="nivo-caption" id="caption-1">
+              <div>
+                <h2>Come and Get to Know Us </h2>
+                <p>
+                  Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
+                </p>
+                <a href="{% url 'accounts:register' %}" class="btn btn-theme">Register</a>
+              </div>
             </div>
-            <div class="col-lg-8 mx-auto">
-              <p class="text-faded mb-5">Connect with us in a click</p>
-              <a class="btn btn-warning btn-xl js-scroll-trigger " href="{% url 'accounts:register' %}">Register</a>
+            <!-- Slide #2 caption -->
+            <div class="nivo-caption" id="caption-2">
+              <div>
+                <h2>Fully <strong>responsive</strong></h2>
+                <p>
+                  Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
+                </p>
+                <a href="{% url 'accounts:register' %}" class="btn btn-theme">Register</a>
+              </div>
+            </div>
+            <!-- Slide #3 caption -->
+            <div class="nivo-caption" id="caption-3">
+              <div>
+                <h2>Very <strong>customizable</strong></h2>
+                <p>
+                  Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
+                </p>
+                <a href="{% url 'accounts:register' %}" class="btn btn-theme">Register</a>
+              </div>
             </div>
           </div>
         </div>
-    </header>
+      </div>
+    </div>
+    <!-- end slider -->
+  </section>
+  <section id="content">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <div class="row">
+            <div class="span3">
+              <div class="box aligncenter">
+                <div class="aligncenter icon">
+                  <i class="icon-briefcase icon-circled icon-64 active"></i>
+                </div>
+                <div class="text">
+                  <h6>Corporate business</h6>
+                  <p>
+                    Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                  </p>
+                  <a href="#">Learn more</a>
+                </div>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="box aligncenter">
+                <div class="aligncenter icon">
+                  <i class="icon-desktop icon-circled icon-64 active"></i>
+                </div>
+                <div class="text">
+                  <h6>Responsive theme</h6>
+                  <p>
+                    Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                  </p>
+                  <a href="#">Learn more</a>
+                </div>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="box aligncenter">
+                <div class="aligncenter icon">
+                  <i class="icon-beaker icon-circled icon-64 active"></i>
+                </div>
+                <div class="text">
+                  <h6>Coded carefully</h6>
+                  <p>
+                    Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                  </p>
+                  <a href="#">Learn more</a>
+                </div>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="box aligncenter">
+                <div class="aligncenter icon">
+                  <i class="icon-coffee icon-circled icon-64 active"></i>
+                </div>
+                <div class="text">
+                  <h6>Sit and enjoy</h6>
+                  <p>
+                    Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                  </p>
+                  <a href="#">Learn more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- divider -->
+      <div class="row">
+        <div class="span12">
+          <div class="solidline">
+          </div>
+        </div>
+      </div>
+      <!-- end divider -->
+    <div class="row">
+        <div class="span12">
+          <h4>Very satisfied <strong>clients</strong></h4>
+          <ul id="mycarousel" class="jcarousel-skin-tango recent-jcarousel clients">
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client1.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client2.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client3.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client4.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client5.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client6.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client1.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client2.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client3.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client4.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client5.png" class="client-logo" alt="" />
+        </a>
+            </li>
+            <li>
+              <a href="#">
+        <img src="img/dummies/clients/client6.png" class="client-logo" alt="" />
+        </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
     <section id="services">
         <div class="container">
           <div class="row">
