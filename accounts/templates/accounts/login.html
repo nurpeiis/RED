@@ -3,22 +3,25 @@
 <title>RED|LOGIN</title>
 {% endblock %}
 {% block body %}
-<div class="row justify-content-center">
-  <h1>Login</h1>
-</div>
-<form class="form-signin" method = "post">
-  <div class = "container">  
- <div class="row justify-content-center">
-  <div class="col-6">
-  {% csrf_token %}
-  {{ form.as_p }}
-  </div>
-  </div>
-  <div class="row justify-content-center">
-      <div class="col-6">
-        <button class="btn btn-lg btn-warning btn-block" type="submit">Sign In</button>
+<!-- Sign in Modal -->
+<div id="mySignin">
+    <h4 id="mySigninModalLabel" class = "aligncenter margintop20">Login to your <strong>account</strong></h4>
+  <div class="modal-body aligncenter margintop20">
+    <form class="form-horizontal" method = "post">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn aligncenter margintop20">Sign in</button>
+        </div>
+        <p class="aligncenter margintop20">
+          Forgot password? <a href="{% url 'accounts:password_reset' %}" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
+        </p>
       </div>
+    </form>
   </div>
+</div>
+<!-- end signin modal -->
     <!--
     <div class="row justify-content-center">
       <div class="col-6">

@@ -3,13 +3,20 @@
 <title>RED|Register</title>
 {% endblock %}
 {% block body %}
-<div class = "container">
+<div class="modal-body aligncenter margintop20">
     <h1> Register </h1>
-    <form method = "post">
+    <form class="form-horizontal" method = "post">
         <!-- csrf toke is used for the security purpose-->
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-lg btn-warning btn-block" type="submit">Submit</button>
+        <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn aligncenter margintop20">Sign in</button>
+        </div>
+        <p class="aligncenter margintop20">
+          Have Account? <a href="{% url 'accounts:login' %}" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
+        </p>
+      </div>
     </form>
 </div>
 {% endblock %}

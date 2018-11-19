@@ -41,7 +41,7 @@ class LoginRequiredMiddleware():
         
         if path == reverse('accounts:logout').lstrip('/'):
             logout(request)
-
+      
         elif request.user.is_authenticated and url_is_exempt:
             #if user is logged in and wants to go into login or logout page redirect to RED page
             return redirect(settings.LOGIN_REDIRECT_URL)

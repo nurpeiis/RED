@@ -52,7 +52,11 @@ class RegistrationForm(UserCreationForm):
         if commit:
             user.save()
         return User
+    def __init__(self, *args, **kwargs):
+        super(RegistrationForm, self).__init__(*args, **kwargs)
 
+        for fieldname in ['username', 'password1', 'password2']:
+            self.fields[fieldname].help_text = None
 class EditProfileForm (UserChangeForm):
     #fields = fields that we want to include
     #exlude = fields that we want to exclude
