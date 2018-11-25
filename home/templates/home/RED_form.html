@@ -1,41 +1,49 @@
 {% extends 'base.html' %}
+{% load static from staticfiles %}
 {% block title %}
 <title>RED|FORM</title>
 {% endblock %}
 {% block body %}
 <div class = "container">
-  <div class = "row">
-    <div class = "col-md-4">
         <h1>Step One</h1>
         <h2>Discover Priorities, Needs, and Expertise</h2>
-        {% load mptt_tags %}
-        <ul>
-            {% recursetree opportunities %}
-                <li>
-                    {{ node.name }}
-                    {% if not node.is_lef_node %}
-                        <ul class = "children">
-                            {{ children }}
-                        </ul>
-                    {% endif %}
-                </li>
-            {% endrecursetree %}    
-        </ul>
-    </div>
-    <div class = "col-md-4">
-      <h1>Enable and Implement Collaborations</h1>
-    </div>
-    <div class = "col-md-4">
-      <h1>Step One</h1>
-      <h2>Discover Priorities, Needs, and Expertise</h2>
-      <form method = "post">
+        <form method = "post">
         {% csrf_token %}
-        {{ form.error }}
-        {{ form.as_p }}
-        <button class="btn btn-lg btn-warning btn-block" type="submit">Submit</button>
-      </form>
-    </div>
-  </div>
+        {{ form.non_field_errors }}
+        {{ form.source.errors }}
+        {{ form.source }}
+        {% load mptt_tags %}
+            {% for user_interests in form.user_interests %}
+            {% recursetree opportunities %}
+            <div class ='row'>
+              <div class = 'col-6 col-md-4 col-xl-3'>
+                  <div class="card work-display-card">
+                      <img class="card-img-top" src="{% static 'img/thumbnail.jpg' %}" >
+                      <div class="card-body">
+                        <div class = 'row'>
+                            <div class = 'col-8'>
+                                <h5 class="card-title">{{ node.name }}</h5>
+                            </div>
+                            <div class = 'col-4'>
+                                <p>Description: {{ node.description }}</p>
+                            </div>
+                            <div class = 'col-12'>
+                                <p>{{ user_interests }}</p>
+                            </div>
+                            {% if not node.is_lef_node %}
+                            <ul class = "children">
+                            {{ children }}
+                            </ul>
+                            {% endif %}
+                        </div>
+                      </div>
+                    </div>        
+                </div>
+            </div>     
+            {% endrecursetree %} 
+            {% endfor %}
+            <button class="btn btn-lg btn-warning btn-block" type="submit">Submit</button>  
+        </form> 
 </div>
 {% endblock %}
 

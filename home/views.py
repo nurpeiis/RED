@@ -26,5 +26,4 @@ class FormView(TemplateView):
             form.save_m2m() # needed since using commit=False
             return redirect ('home:form')
         return render(request, self.template_name, {'form': form}, context_instance=RequestContext(request))
-class HomeView(TemplateView):
-    template_name = 'home/home.html'
+

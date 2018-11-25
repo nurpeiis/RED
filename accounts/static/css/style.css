@@ -2219,6 +2219,99 @@ article img.pull-right, article .align-right {
 }
 
 /* =============================
+20.5 Representing Form in a nice way
+============================= */
+.work-card{
+  	
+    text-align: center;
+    padding: 10px;
+    transition: all 600ms ease;
+    margin-bottom: 50px;
+  
+  
+  }
+  
+  
+  .work-card:hover{
+  
+    background-color: #f3f3f3;
+  
+    border-radius: 20px;
+  
+    transition: all 600ms ease;
+  
+    
+  
+  }
+  
+
+  
+  .work-card:hover .work-icon{
+  
+    opacity: 0.8;
+  
+      transition: all 600ms ease;
+  
+    
+  
+  }
+  
+
+  
+  .work-icon{
+  
+    font-size: 3em;
+  
+    padding-bottom: 20px;
+  
+    transition: all 600ms ease;
+  
+    }
+  
+
+  
+
+  
+
+  
+
+  
+  .work-card-title{
+  
+    font-weight: 300;
+  
+    font-size: 1.3em;
+  
+    text-transform: uppercase;
+  
+    letter-spacing: .2em;
+  
+  }
+  
+
+  
+  .work-card a, .card-hyperlink{
+  
+    transition: all 600ms ease;
+  
+  }
+  
+
+  
+  .work-card a:hover,  .card-hyperlink:hover{
+  
+    text-decoration: none;
+  
+    color: #1f1f1f;
+  
+    transition: all 600ms ease;
+  
+    letter-spacing: 1px;
+  
+  }
+  
+  
+/* =============================
 21. Media queries
 ============================= */
 
