@@ -8,6 +8,7 @@ from multiselectfield import MultiSelectField
 class StageOneInterests(MPTTModel):
     name = models.CharField(max_length=50, unique=True)
     description = models.TextField()
+    imageResource = models.ImageField(upload_to ='image', blank = True )
     #ForeignKey in this case enables to link the parent with child so used 'self' method
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     class Meta():
@@ -28,7 +29,6 @@ class StageOneInterestsPost (models.Model):
     
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     user_interests = models.ManyToManyField(StageOneInterests)
-    other_interests = models.TextField(blank = True)
     created = models.DateTimeField (auto_now_add = True, blank =True)
     updated = models.DateTimeField (auto_now = True, blank =True)
 
