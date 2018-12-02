@@ -12,9 +12,7 @@
         {{ form.non_field_errors }}
         {{ form.source.errors }}
         {{ form.source }}
-        {% load mptt_tags %}
-            {% for user_interests in form.user_interests %}
-            {% recursetree opportunities %}
+        {% for user_interests, node in l%}
             <div class ='row'>
               <div class = 'col-6 col-md-4 col-xl-3'>
                   <div class="card work-display-card">
@@ -30,18 +28,12 @@
                             <div class = 'col-12'>
                                 <p>{{ user_interests }}</p>
                             </div>
-                            {% if not node.is_lef_node %}
-                            <ul class = "children">
-                            {{ children }}
-                            </ul>
-                            {% endif %}
                         </div>
                       </div>
                     </div>        
                 </div>
             </div>     
-            {% endrecursetree %} 
-            {% endfor %}
+        {% endfor %}
             <button class="btn btn-lg btn-warning btn-block" type="submit">Submit</button>  
         </form> 
 </div>
