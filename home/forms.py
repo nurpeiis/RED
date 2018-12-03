@@ -5,11 +5,17 @@ from mptt.forms import TreeNodeMultipleChoiceField, TreeNodeChoiceField
 from django.forms import CheckboxSelectMultiple
 from django.db.utils import OperationalError
 class StepOneInterestForm(forms.ModelForm):
-    user_interests_StepOne = forms.ModelMultipleChoiceField(queryset=SubSection.objects.all(), widget=CheckboxSelectMultiple)
+    def __init__(self, *args, **kwargs):
+        steponeinterest_pk = kwargs['steponeinterest_pk']
+        del kwargs['steponeitnerest_pk']
+        super(StepOneInterestForm, self).__init__(*args, **kwargs)
+        choices = [(ts.pk, ts.name) for user_interest in SubSection.objects.filter(pk=steponeinterest_pk)]
+        self.fields['user_interests'].choices = choices
     class Meta:
         model = StepOneInterest
             #comma should be put at the end so that it will be tuple, if there is one variable to the element
         fields = ('user_interests', )
+        widgets = {'sub': forms.CheckboxSelectMultiple}
    
 
    
