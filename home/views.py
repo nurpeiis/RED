@@ -16,17 +16,15 @@ class StepOneView(TemplateView):
     def get(self, request):
         #blank if you refresh the page
         form = StepOneInterestForm()
-        opportunities = SubSection.objects.all()
-        myList = zip(form, opportunities) 
+        love = form.fields['user_interests'].queryset
+        myList = zip(form, love)
         #'form': form, 'opportunities': opportunities,
         args = {'myList': myList, 'form': form }
+        print(args, args['form'].fields['user_interests'].queryset)
         return render(request, self.template_name, args )
     def post(self, request):
         form = StepOneInterestForm(request.POST)
-        print (form)
-        print(form.errors)
         if form.is_valid():
-            print("hello")
             obj_form = form.save(commit = False)
             obj_form.user = request.user
             obj_form.save()#save the data in database

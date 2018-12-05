@@ -3,29 +3,33 @@
 {% block title %}
 <title>RED|FORM</title>
 {% endblock %}
+{% load home %}
 {% block body %}
-<div class = "container">
         <h1>Step One</h1>
         <h2>Discover Priorities, Needs, and Expertise</h2>
-        <form method = "post">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-        {{ form.source.errors }}
-        {{ form.source }}
-        {% for node in form.user_interests_StepOne.queryset%}
-        <div class="card card-select" data-cardSelect>
-            <div class="card-divider">
-            {{node}}
-            </div>
-            <img src="{% static 'img/thumbnail.jpg' %}">
-            <div class="card-section">
-                <p> {{ node.description }} </p>
-                <p>{{ node.0 }}</p>
-            </div>
-            {% endfor %} 
-            <button class="btn btn-lg btn-warning btn-block" type="submit"></button>
-        </form> 
-</div>
+            <form method = "post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.source.errors }}
+                {{ form.source }}
+                {% for node in form.fields.user_interests.queryset %}
+                    <center>
+                    <h3>{{ node.name }}</h3>
+                    <img class="card-img-top" src="{% static 'img/thumbnail.jpg' %}">
+                    <p>{{ node.description }}</p>
+                    <div class = "myradio">
+                    <p>{{ node }}</p>
+                    </div>
+                    </center>
+                {% endfor %} 
+                <center>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn aligncenter margintop20">Submit</button>
+                    </div>
+                </div>
+                </center>
+            </form> 
 {% endblock %}
 
 
