@@ -3,8 +3,15 @@
 {% block title %}
 <title>RED|FORM</title>
 {% endblock %}
-{% load home %}
 {% block body %}
+        <style>
+            .subSectionCheckbox {
+                display: none;
+            }
+            .subSectionCheckbox:checked + .subSectionLabel { 
+                background-color: lightsteelblue;
+            }
+        </style>
         <h1>Step One</h1>
         <h2>Discover Priorities, Needs, and Expertise</h2>
             <form method = "post">
@@ -14,12 +21,12 @@
                 {{ form.source }}
                 {% for node in form.fields.user_interests.queryset %}
                     <center>
-                    <h3>{{ node.name }}</h3>
-                    <img class="card-img-top" src="{% static 'img/thumbnail.jpg' %}">
-                    <p>{{ node.description }}</p>
-                    <div class = "myradio">
-                    <p>{{ node }}</p>
-                    </div>
+                    <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
+                    <label for="user_interest_{{ forloop.counter }}" class="subSectionLabel">
+                        <h3>{{ node.name }}</h3>
+                        <img class="card-img-top" src="{% static 'img/thumbnail.jpg' %}">
+                        <p style="color:black;">{{ node.description }}</p>
+                    </label>
                     </center>
                 {% endfor %} 
                 <center>

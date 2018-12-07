@@ -1,9 +1,8 @@
 from RED.settings.base import *
-
+import os
 #Overwrite base settings here
 # Read secret key from a file
-with open('/etc/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = False
 DATABASES = {
     'default': {
@@ -11,7 +10,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+server {
+    listen 80 default_server;
+    return 444;
+}
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 try:
     from RED.settings.base import *
 except:

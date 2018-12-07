@@ -61,7 +61,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'RED.wsgi.application'
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -91,7 +91,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dubai'
 
 USE_I18N = True
 

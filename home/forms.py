@@ -31,7 +31,11 @@ class StepOneInterestForm(forms.ModelForm):
     #interests = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=SubSection.objects.all())
     def __init__(self, *args, **kwargs):
         super(StepOneInterestForm, self).__init__(*args, **kwargs)
-        self.fields['user_interests'].queryset = SubSection.objects.all()
+        self.user_interests = forms.ModelMultipleChoiceField(
+            required=True,
+            widget=forms.CheckboxSelectMultiple,
+            queryset=SubSection.objects.all()
+        )
         self.user = None
     class Meta():
         model = StepOneInterest
