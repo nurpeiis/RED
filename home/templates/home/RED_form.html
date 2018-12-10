@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
 {% block title %}
-<title>RED|FORM</title>
+<title>RED|STEP ONE</title>
 {% endblock %}
 {% block body %}
         <style>
@@ -9,26 +9,61 @@
                 display: none;
             }
             .subSectionCheckbox:checked + .subSectionLabel { 
-                background-color: lightsteelblue;
+                background-color: #E8E8E8;
+            }
+            .box{
+                padding:60px 0px;
+            }
+
+            .box-part{
+                background:#FFF;
+                border-radius:0;
+                padding:60px 10px;
+                margin:30px 0px;
+            }
+            .text{
+                margin:20px 0px;
             }
         </style>
-        <h1>Step One</h1>
-        <h2>Discover Priorities, Needs, and Expertise</h2>
+        <center>
+            <h1>Step One</h1>
+            <h2>Discover Priorities, Needs, and Expertise</h2>
+        </center>
             <form method = "post">
                 {% csrf_token %}
                 {{ form.non_field_errors }}
                 {{ form.source.errors }}
                 {{ form.source }}
-                {% for node in form.fields.user_interests.queryset %}
-                    <center>
-                    <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
-                    <label for="user_interest_{{ forloop.counter }}" class="subSectionLabel">
-                        <h3>{{ node.name }}</h3>
-                        <img class="card-img-top" src="{% static 'img/thumbnail.jpg' %}">
-                        <p style="color:black;">{{ node.description }}</p>
-                    </label>
-                    </center>
-                {% endfor %} 
+                <div class = "container">
+                    <div class = "row">
+                        <div class="span12">
+                            <div class="row">
+                                {% for node in form.fields.user_interests.queryset %}
+                                    <div class="span3">
+                                        <div class="box aligncenter">
+                                            <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
+                                            <label for="user_interest_{{ forloop.counter }}" class="subSectionLabel">
+                                                    <div class="title">
+                                                        <h3>{{ node.name }}</h3>
+                                                    </div>
+                                                    <div class = "aligncenter">
+                                                        <img src="{{ node.steponeimage.url }}" width = 240>
+                                                    </div>
+                                                    <div class="text">
+                                                        <p>{{ node.section }}</p>
+                                                        <p style="color:black;">{{ node.description }}</p>
+                                                    </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    {% if forloop.counter|divisibleby:"4" and not forloop.last %}
+                                        </div><div class="row">
+                                    {% endif %}
+                                {% endfor %} 
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <center>
                 <div class="control-group">
                     <div class="controls">

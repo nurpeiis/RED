@@ -2512,9 +2512,21 @@ letter-spacing: .5px;
   transform: translateX(10px);
 }
 
-  
+
+
 /* =============================
-21. Media queries
+21. Step One
+============================= */
+.subSectionCheckbox {
+  display: none;
+}
+.subSectionCheckbox:checked .subSectionLabel { 
+  background-color: lightsteelblue;
+}
+
+
+/* =============================
+22. Media queries
 ============================= */
 
 @media (min-width: 979px) and (max-width: 1200px) {

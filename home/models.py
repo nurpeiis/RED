@@ -24,7 +24,7 @@ class SubSection (models.Model):
     section = models.ForeignKey(BigSection, on_delete = models.CASCADE)
     name = models.CharField(max_length=50, unique=True)
     description = models.TextField()
-    imageResource = models.ImageField(upload_to ='image', blank = True )
+    steponeimage = models.ImageField(upload_to ='image', blank = True )
     class Meta():
         db_table = 'Sub Section collection'
         verbose_name_plural = 'Sub Sections'

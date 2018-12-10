@@ -14,7 +14,7 @@
         <!-- Slide #1 image -->
         <img src="{% static 'img/slides/nivo/campus.jpg' %}" alt="" title="#caption-1" />
         <!-- Slide #2 image -->
-        <img src="{% static 'img/slides/nivo/bg-2.jpg' %}" alt="" title="#caption-2" />
+        <img src="{% static 'img/slides/nivo/HEChancellor.jpg' %}" alt="" title="#caption-2" />
         <!-- Slide #3 image -->
         <img src="{% static 'img/slides/nivo/bg-3.jpg' %}" alt="" title="#caption-3" />
       </div>
@@ -24,20 +24,18 @@
             <!-- Slide #1 caption -->
             <div class="nivo-caption" id="caption-1">
               <div>
-                <h2>Come and Get to Know Us </h2>
+                <h2>Learn More About Our Work</h2>
                 <p>
-                  Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                </p>
-                <a href="{% url 'accounts:register' %}" class="btn btn-theme">Register</a>
+                  The Office of Community and Education Engagement connects NYU Abu Dhabi with local and international partners to cultivate mutually beneficial relations.                </p>
+                <a href="{% url 'accounts:register' %}" class="btn btn-theme">Learn More</a>
               </div>
             </div>
             <!-- Slide #2 caption -->
             <div class="nivo-caption" id="caption-2">
               <div>
-                <h2>Fully <strong>responsive</strong></h2>
+                <h2>Register to Schedule a Meeting</h2>
                 <p>
-                  Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                </p>
+                 Interested in connecting with us and the university? Register below with your contact details and topics of interest so we can schedule a meeting and/or a campus tour.                 </p>
                 <a href="{% url 'accounts:register' %}" class="btn btn-theme">Register</a>
               </div>
             </div>
@@ -64,9 +62,8 @@
           <div class="row">
             <div class="span3">
               <div class="box aligncenter">
-                <div class="aligncenter icon">
-                  <a href="{% url 'accounts:register' %}"><i class="icon-info-sign icon-circled icon-64 active"></i></a>
-                </div>
+                <div class="aligncenter">
+                  <a href="{% url 'accounts:register' %}"><img width ="60" src="{% static 'img/main_page_icons/step1learnmore.png' %}" alt="" title="#caption-1" />                </div>
                 <div class="text">
                   <a href="{% url 'accounts:register' %}"><h6>Register</h6></a>
                 </div>
@@ -74,8 +71,8 @@
             </div>
             <div class="span3">
               <div class="box aligncenter">
-                <div class="aligncenter icon">
-                  <i class="icon-desktop icon-circled icon-64 active"></i>
+                <div class="aligncenter">
+                  <img width ="60" src="{% static 'img/main_page_icons/step2register.png' %}" alt="" title="#caption-1" /> 
                 </div>
                 <div class="text">
                   <h6>Learn about NYUAD</h6>
@@ -88,8 +85,8 @@
             </div>
             <div class="span3">
               <div class="box aligncenter">
-                <div class="aligncenter icon">
-                  <i class="icon-beaker icon-circled icon-64 active"></i>
+                <div class="aligncenter">
+                  <img width ="60" src="{% static 'img/main_page_icons/step3interests.png' %}" alt="" title="#caption-1" />                
                 </div>
                 <div class="text">
                   <h6>Fill out Interest Form</h6>
@@ -102,8 +99,8 @@
             </div>
             <div class="span3">
               <div class="box aligncenter">
-                <div class="aligncenter icon">
-                  <i class="icon-coffee icon-circled icon-64 active"></i>
+                <div class="aligncenter">
+                  <img width ="60" src="{% static 'img/main_page_icons/step4meeting.png' %}" alt="" title="#caption-1" />                
                 </div>
                 <div class="text">
                   <h6>Create Projects Collabboratively</h6>
@@ -127,7 +124,7 @@
       <!-- end divider -->
     <div class="row">
         <div class="span12">
-          <h4>Very satisfied <strong>clients</strong></h4>
+          <h4>Our <strong>Partners</strong></h4>
           <ul id="mycarousel" class="jcarousel-skin-tango recent-jcarousel clients">
             <li>
               <a href="https://tcaabudhabi.ae/en/default.aspx">
