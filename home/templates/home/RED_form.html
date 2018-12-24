@@ -24,6 +24,43 @@
             .text{
                 margin:20px 0px;
             }
+            .items {
+                max-width: 1200px;
+            }
+
+            .item {
+                width: 25%;
+                box-sizing: border-box;
+                display: inline-block;
+                vertical-align: top;
+                padding: 0 12px;
+                margin: 24px -4px 24px 0;
+            }
+
+            @media (max-width: 600px) {
+                .item {
+                    width: 50%;
+                }
+            }
+
+            .item__heading {
+                background-color: #d4d0f5;
+                padding: 10px;
+                text-align: center;
+                border: 1px solid #bbbbbb;
+            }
+
+            .item__content {
+                padding: 10px;
+                border-left: 1px solid #bbbbbb;
+                border-right: 1px solid #bbbbbb;
+            }
+            .item__price {
+                background-color: #e0f6d9;
+                padding: 10px;
+                text-align: center;
+                border: 1px solid #bbbbbb;
+            }
         </style>
         <center>
             <h1>Step One</h1>
@@ -34,6 +71,25 @@
                 {{ form.non_field_errors }}
                 {{ form.source.errors }}
                 {{ form.source }}
+                <!--
+                <div class = "items">
+                    {% for node in form.fields.user_interests.queryset %}
+                        <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
+                        <label for="user_interest_{{ forloop.counter }}" class="subSectionLabel">
+                        <div class="item">
+                            <div class="item__heading">
+                                {{ node.name }}
+                            </div>
+                            <div class="item__content">
+                                {{ node.description }}
+                            </div>
+                            <div class="item__price">
+                                <img src="{{ node.steponeimage.url }}" width = 240>
+                            </div>
+                        </div>
+                    {% endfor %} 
+                </div>
+                -->
                 <div class = "container">
                     <div class = "row">
                         <div class="span12">
@@ -43,7 +99,7 @@
                                         <div class="box aligncenter">
                                             <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
                                             <label for="user_interest_{{ forloop.counter }}" class="subSectionLabel">
-                                                    <div class="title">
+                                                    <div class="header">
                                                         <h3>{{ node.name }}</h3>
                                                     </div>
                                                     <div class = "aligncenter">
@@ -51,7 +107,7 @@
                                                     </div>
                                                     <div class="text">
                                                         <p>{{ node.section }}</p>
-                                                        <p style="color:black;">{{ node.description }}</p>
+                                                        <p align="left" style="color:black;" >{{ node.description }}</p>
                                                     </div>
                                             </label>
                                         </div>
@@ -72,6 +128,7 @@
                 </div>
                 </center>
             </form> 
+    <script src="{% static 'js/myscript.js' %}"></script>
 {% endblock %}
 
 

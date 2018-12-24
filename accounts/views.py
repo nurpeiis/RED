@@ -66,7 +66,7 @@ def change_password (request):
             update_session_auth_hash(request, form.user) #user that tried to change password
             return redirect('/account/profile', {})
         else:
-            return redirect('/account/change-password')
+            return redirect('/account/password')
     # if just get
     else:
         form = PasswordChangeForm(user = request.user)

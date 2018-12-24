@@ -120,7 +120,8 @@ LOGIN_EXEMPT_URLS = [
     r'^account/reset-password/$',
     r'^account/reset-password/done/$',
     r'^account/reset-password/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-    r'^account/reset-password/complete/$'
+    r'^account/reset-password/complete/$',
+    r'^home/about-us-notauth'
 ]
 #For email debugging purposes
 EMAIL_HOST = 'localhost'
