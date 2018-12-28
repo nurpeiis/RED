@@ -1,0 +1,261 @@
+
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+<!---
+    $ (function() {
+        var documentEl = $(document),
+            fadeElem = $('.fade-in');
+        documentEl.on('scroll', function() {
+          var currScrollPos = documentEl.scrollTop();
+
+          fadeElem.each(function() {
+            var $this = $(this),
+              elemOffsetTop = $this.offset().top;
+            if (currScrollPos > elemOffsetTop) $this.css('opacity', 1-(currScrollPos-elemOffsetTop/20);
+          });
+        });
+      });
+
+      $(document).ready(function(){
+        $(window).scroll(function() {
+          if ($(this).scrollTop() > 0) {
+            $(".fade-in").css({"opacity" : 0})
+          }
+          else {
+            $(".fade-in").css({"opacity" : 1})
+          }
+        }
+      })
+
+    </script> -->
+  </head>
+  <body>
+    <div id="wrapper">
+      <!--Give the user logged in it would have different navigation bar than is he/she is not-->
+      <header>
+          <div class="container">
+            <div class="row nomargin">
+              <div class="span12">
+                <div class="headnav">
+                  <ul>
+                    <li><a href="{% url 'accounts:edit_profile' %}" data-toggle="modal"><i class="icon-user"></i> Edit Profile</a></li>
+                    <li><a href="{% url 'accounts:logout' %}" data-toggle="modal">Logout</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <div class="row">
+              <div class="span4">
+                <!--logo-->
+                <div class="logo">
+                  <a href="{% url 'home:home_notauth' %}"><img src='REDLogo.png' width="40" height="30" alt="" class="logo" /></a>
+                </div>
+                <!--end logo-->
+              </div>
+              <div class="span8">
+                <div class="navbar navbar-static-top">
+                  <div class="navigation">
+                    <nav>
+                      <ul class="nav topnav">
+                        <li>
+                          <a href="{% url 'home:home' %}">Home </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'home:form' %}">Step One </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'accounts:change_password' %}">Change Password</a>
+                        </li>
+                        <li>
+                          <a href="contact.html">Contact </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <!-- end navigation -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+<div class="no-padding">
+  <div class="row">
+    <div class="col-12">
+      <img src="nyu2.png" class="imgHeader" width="100%" height="800px" />
+      <div class="carousel-caption">
+        <h1>Get to know us</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div class="about text-center container-fluid">
+    <br><br><h2>About Us</h2><br>
+</div>
+-->
+
+<div class="container-fluid padding bg-light first">
+  <br>
+  <div class="row text-center padding">
+    <div class="col-xs-12 col-sm-12 col-md-3 px-0 mx-auto d-block">
+      <img src="meaningfulconnections.png" class="img-fluid rightImg">
+    </img>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-4 text-left">
+      <h3 class="container-fluid hiddenRightHeader">
+        Meaningful Connections
+      </h3>
+      <hr>
+      <p class="container-fluid hiddenRightParagraph">Dedicated to upholding the university's commitment to facilitating a center
+        for scholarship and innovation, the Office of Community and Education Engagement
+        seeks to develop professional connections that are mutually beneficial for both
+        the university and the client. The office aims to establish ties between the university
+        and companies, NGOs and government organizations from a plethora of fields.
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 container-fluid">
+    </div>
+  </div>
+  <br>
+  <hr>
+</div>
+
+<br>
+  <div class="row second">
+
+    <div class="col-xs-12 col-sm-12 col-md-4">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 text-right">
+      <h3 class="container-fluid hiddenLeftHeader">
+        Innovation
+      </h3>
+      <hr>
+      <p class="container-fluid hiddenLeftParagraph">We aim to build connections that promote technological and social innovation.
+         Whether in the form of engaging with partners to develop programs that teach
+         students how to use technology or working with multinational research organizations,
+         the office is prepared to connect partners and the university to ensure the establishment
+         of these relationships
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 px-0 mx-auto d-block">
+        <img src="image2.png" class="img-fluid leftImg"></img>
+    </div><br>
+</div>
+<div class="container-fluid padding bg-light hidden move">
+  <hr><br>
+  <div class="row text-center third">
+    <div class="col-xs-12 col-sm-12 col-md-3 px-0 mx-auto d-block">
+      <img src="image4.png" class="img-fluid rightImg">
+    </img>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-4 text-left">
+      <h3 class="container-fluid hiddenRightHeader">
+        Education
+      </h3>
+      <hr>
+      <p class="container-fluid hiddenRightParagraph">We believe in the vital role that education plays in shaping communities
+        and the world. Dedicated to upholding the values upon which NYU Abu Dhabi was
+        founded upon, valuing a diversity of opinion and universal dialogue, the office
+        engages with partners to create programs that benefit students and faculty from
+        NYU Abu Dhabi, universities around the United Arab Emirates, as well as
+        students and faculty from secondary and primary education centers.
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 container-fluid">
+    </div>
+  </div>
+  <br>
+  <hr>
+</div>
+
+<br>
+<div class="row fourth"><br>
+  <div class="col-xs-12 col-sm-12 col-md-4">
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-4 text-right">
+    <h3 class="container-fluid hiddenLeftHeader">
+      Community
+    </h3>
+    <hr>
+    <p class="container-fluid hiddenLeftParagraph"> We believe in the importance of NYU Abu Dhabi's continued integration into
+      the wider Emirati community. The office will continue to develop relationships
+      with important organizations, companies and agencies across the nation as the
+        university and the United Arab Emirates continue to grow together.
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-3 px-0 mx-auto d-block">
+      <img src="image3.png" class="img-fluid leftImg"></img>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+/*
+  (function() {
+    var moveEl = $('div.move'),
+        moveElOffset = 400,
+        documentEl = $(document);
+    documentEl.on('scroll', function () {
+        if (documentEl.scrollTop() > moveElOffset && moveEl.hasClass('hidden')) aboutEl.removeClass('hidden');
+    });
+  }();
+*/
+/*
+var $hidden = $('.hidden');
+var $win = $(window);
+
+$win.on ('scroll', function () {
+  var top = $win.scrollTop();
+  $hidden.css('transform', 'translate(500px)')//'rotate(300' + top + 'deg)');
+}); */
+
+$(window).scroll(function(){
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop()>=400){
+    $('.first').addClass('animate');
+  }
+
+});
+
+
+$(window).scroll(function(){
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop()>=800){
+    $('.second').addClass('animate');
+  }
+
+});
+
+$(window).scroll(function(){
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop()>=1200){
+    $('.third').addClass('animate');
+  }
+
+});
+
+$(window).scroll(function(){
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop()>=1600){
+    $('.fourth').addClass('animate');
+  }
+
+});
+
+$(window).scroll(function(){
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop()>=400){
+    $('.rightImg,.leftImg').addClass('animate');
+  }
+
+});
+
+
+</script>
+  </body>
+</html>
