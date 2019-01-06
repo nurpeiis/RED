@@ -68,35 +68,11 @@ a:active {
 2. layout
 ==================================== */
 
-.container {
-  padding: 0 20px 0 20px;
-  position: relative;
+.carousel-caption h2 {
+  font-size: 3vw;
 }
-
-#wrapper {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#wrapper.boxed {
-  width: 1230px;
-  overflow: hidden;
-  margin: 0 auto;
-  padding: 0;
-  background: #fff;
-}
-
-.row, .row-fluid {
-  margin-bottom: 30px;
-}
-
-.row .row, .row-fluid .row-fluid {
-  margin-bottom: 30px;
-}
-
-.row.nomargin, .row-fluid.nomargin {
-  margin-bottom: 0;
+.carousel-caption p {
+  font-size: 1.5vw;
 }
 
 /* ===================================
@@ -133,243 +109,12 @@ img.img-polaroid {
   max-width: 100%;
 }
 
-/* ===================================
-4. Header
-==================================== */
+ /* Set the size of the div element that contains the map */
+ #map {
+  height: 400px;  /* The height is 400 pixels */
+  width: 100%;  /* The width is the width of the web page */
+ }
 
-/* --- hidden top area --- */
-
-.hidden-top {
-  height: 0;
-  color: #fff;
-  overflow: hidden;
-  -webkit-transition: all 0.4s ease-out;
-  -moz-transition: all 0.4s ease-out;
-  -o-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
-}
-
-.hidden-top-inner ul {
-  list-style: none;
-  margin-top: 30px;
-  margin-left: 0;
-}
-
-.hidden-top-inner ul li {
-  display: inline;
-  margin: 0 20px 0 0;
-}
-
-.hidden-top.toggle-link-open {
-  padding: 10px 0;
-}
-
-.hidden-top a {
-  color: #ffffff;
-}
-
-#header-hidden-link {
-  position: absolute;
-  right: 60px;
-  top: 0px;
-}
-
-#header-hidden-link a.toggle-link, #header-hidden-link a.top-link {
-  outline: 0;
-  font-size: 0;
-  line-height: 1;
-  padding: 5px 10px;
-  height: 20px;
-  display: block;
-  text-align: center;
-  color: #fefefe;
-  text-decoration: none;
-}
-
-#header-hidden-link a.toggle-link:active, #header-hidden-link a.toggle-link:focus, #header-hidden-link a.toggle-link:hover {
-  outline: 0;
-}
-
-#header-hidden-link a.toggle-link i, #header-hidden-link a.top-link i {
-  font-size: 16px;
-  line-height: 1;
-}
-
-#header-hidden-link a.toggle-link:hover, #header-hidden-link a.top-link:hover {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-#header-hidden-link a.toggle-link>i:before {
-  content: "\f067";
-  font-family: 'FontAwesome';
-  font-size: 13px;
-  font-weight: normal;
-  font-style: normal;
-}
-
-#header-hidden-link a.toggle-link.open {
-  text-decoration: none;
-}
-
-#header-hidden-link a.toggle-link.open>i:before {
-  content: "\f068";
-}
-
-.toggle-link-open {
-  height: auto !important;
-  min-height: 40px;
-  max-height: 40000px;
-}
-
-.toggle-link-close {
-  height: 0;
-  overflow: hidden;
-}
-
-/* --- modal signup & signin form --- */
-
-/* modal styled */
-
-.modal.styled .modal-header h4 {
-  color: #fff;
-}
-
-/* --- header -- */
-
-header {
-  background: #fff;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-
-header .logo {
-  margin: -10px 0 0 0;
-  float: left;
-}
-
-header .logo img {
-  margin-bottom: 10px;
-}
-
-header .logo h1 {
-  font-size: 14px;
-  margin: 0;
-}
-
-/* --- headnav menu : signup & signin --- */
-
-.headnav {
-  float: right;
-  margin: 35px 0 0 0;
-  border-bottom: 1px dotted #e6e6e6;
-}
-
-.headnav ul {
-  margin-left: 0;
-  list-style: none;
-}
-
-.headnav ul li {
-  display: inline;
-  margin-left: 10px;
-}
-
-.headnav ul li a {
-  outline: 0;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.headnav ul li a:hover, .headnav ul li a:focus, .headnav ul li a:active {
-  outline: 0;
-}
-
-/* --- menu --- */
-
-@media (min-width: 768px) {
-  header .navigation {
-    float: right;
-  }
-}
-
-header ul.nav li {
-  border: none;
-  margin: 0;
-}
-
-header ul.nav li a {
-  font-size: 12px;
-  border: none;
-  font-weight: 300;
-  text-transform: uppercase;
-}
-
-.navbar .nav>li>a {
-  color: #111;
-  text-shadow: none;
-}
-
-.navbar .nav a:hover {
-  background: none;
-}
-
-.navbar .nav>.active>a, .navbar .nav>.active>a:hover {
-  background: none;
-  font-weight: 600;
-}
-
-.navbar .nav>.active>a:active, .navbar .nav>.active>a:focus {
-  background: none;
-  outline: 0;
-  font-weight: 600;
-}
-
-.navbar .nav li .dropdown-menu {
-  z-index: 2000;
-}
-
-header ul.nav li ul {
-  margin-top: 1px;
-}
-
-header ul.nav li ul li ul {
-  margin: 1px 0 0 1px;
-}
-
-.dropdown-menu .dropdown i {
-  position: absolute;
-  right: 0;
-  margin-top: 3px;
-  padding-left: 20px;
-}
-
-.navbar .nav>li>.dropdown-menu:before {
-  display: inline-block;
-  border-right: none;
-  border-bottom: none;
-  border-left: none;
-  border-bottom-color: none;
-  content: none;
-}
-
-.navbar .nav>li>.dropdown-menu:after {
-  display: inline-block;
-  border-right: none;
-  border-bottom: none;
-  border-left: none;
-  content: '';
-}
-
-ul.nav li.dropdown a {
-  z-index: 1000;
-  display: block;
-}
-
-select.selectmenu {
-  display: none;
-}
 
 /* ===================================
 5. Section: Featured
@@ -2241,7 +1986,7 @@ html {
 
 body {
 background-color: #fff;
-color: #fff;
+color:black;
 font-family: 'Open Sans', sans-serif;
 font-weight: 300,400,700;
 }

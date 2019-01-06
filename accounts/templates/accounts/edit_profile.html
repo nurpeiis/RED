@@ -1,19 +1,15 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block title %}
 <title>RED|Edit Profile</title>
 {% endblock %}
 {% block body %}
 <!--User information-->
 <div class = "container" style="color:black;">
-    <form method = "post">
+    <form class= "form" method = "post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <div class="control-group">
-            <div class="controls">
-                <button type="submit" class="btn aligncenter margintop20">Sign in</button>
-            </div>
-        </div> 
+        {{ form| crispy }}
+        <button type="submit" class="btn btn-dark aligncenter margintop20">Edit</button>
       </form>
 </div>
 

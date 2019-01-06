@@ -5,128 +5,84 @@
   {% block head %}
     {% load static %}
      <!-- css -->
+    <link  href="{% static 'css/bootstrap4.1.min.css' %}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">
-    <link  href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/fancybox/jquery.fancybox.css' %}" rel="stylesheet">
-    <link href="{% static 'css/jcarousel.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/flexslider.css' %}"rel="stylesheet" />
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Theme skin -->
-    <link href="{% static 'skins/default.css' %}" rel="stylesheet" />
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/REDLogo144.png' %}" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/REDLogo114.png' %}" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/REDLogo72.png' %}" />
     <link rel="apple-touch-icon-precomposed" href="{% static 'ico/REDLogo.png' %}"/>
     <link rel="shortcut icon" href="{% static 'ico/REDLogo.png' %}" />
-
+ 
         <!-- Required meta tags -->
         
-      <meta charset="utf-8">
-      <meta name="keywords" content="Community, Engagement, University, Student, New York University Abu Dhabi, ">
-      <meta name="description" content="Connect the community of New York University Abu Dhabi with External Partners through effective matching of interception points">
-      <meta name="author" content="Nurpeiis Baimukan">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Community, Engagement, University, Student, New York University Abu Dhabi, ">
+    <meta name="description" content="Connect the community of New York University Abu Dhabi with External Partners through effective matching of interception points">
+    <meta name="author" content="Nurpeiis Baimukan">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       {% block title %}
       <title>RED|Base</title>
       {% endblock %}
-    {% endblock %}
+  {% endblock %}
     </head>
   <!--Navigation-->
   <body>
-    <div id="wrapper">
       {% block navigation %}
       <!--Give the user logged in it would have different navigation bar than is he/she is not-->
+    <header>
       {% if user.is_authenticated %}
-      <header>
-          <div class="container ">
-            <div class="row nomargin">
-              <div class="span12">
-                <div class="headnav">
-                  <ul>
-                    <li><a href="{% url 'accounts:edit_profile' %}" data-toggle="modal"><i class="icon-user"></i> Edit Profile</a></li>
-                    <li><a href="{% url 'accounts:logout' %}" data-toggle="modal">Logout</a></li>
-                  </ul>
-                </div> 
-              </div>
-            </div>
-          <div class="row">
-              <div class="span4">
-                <!--logo-->
-                <div class="logo">
-                  <a href="{% url 'home:home_notauth' %}"><img src="{% static 'REDLogo.png' %}" width="40" height="30" alt="" class="logo" /></a>
-                </div>
-                <!--end logo-->
-              </div>
-              <div class="span8">
-                <div class="navbar navbar-static-top">
-                  <div class="navigation">
-                    <nav>
-                      <ul class="nav topnav">
-                        <li>
-                          <a href="{% url 'home:home' %}">Home </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'home:form' %}">Step One </a>
-                        </li>
-                        <li>
-                          <a href="{% url 'home:about_us' %}">About Us </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'accounts:change_password' %}">Change Password</a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                  <!-- end navigation -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-      {% else %}
-      <header>
-        <div class="container ">
-          <div class="row nomargin">
-            <div class="span12">
-              <div class="headnav">
-                <ul>
-                  <li><a href="{% url 'accounts:register' %}" data-toggle="modal"><i class="icon-user"></i> Sign up</a></li>
-                  <li><a href= "{% url 'accounts:login' %}" data-toggle="modal">Sign in</a></li>
-                </ul>
-              </div> 
-            </div>
-          </div>
-        <div class="row">
-            <div class="span4">
-              <!--logo-->
-              <div class="logo">
-                <a href="{% url 'home:home_notauth' %}"><img src="{% static 'REDLogo.png' %}" width="40" height="30" alt="" class="logo" /></a>
-              </div>
-              <!--end logo-->
-            </div>
-            <div class="span8">
-              <div class="navbar navbar-static-top">
-                <div class="navigation">
-                  <nav>
-                    <ul class="nav topnav">
-                      <li class="dropdown">
-                        <a href="{% url 'home:home_notauth' %}">Home </a>
-                      </li>
-                      <li>
-                        <a href="{% url 'home:about_us_notauth' %}">About Us </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <!-- end navigation -->
-              </div>
-            </div>
-          </div>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{% url 'home:home' %}"><img src="{% static 'REDLogo.png' %}" width="40" height="30" alt=""/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:home' %}">Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:form' %}">Step One </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:about_us_notauth' %}">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:edit_profile' %}" data-toggle="modal"><i class="icon-user"></i> Edit Profile</a></li>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'accounts:logout' %}" data-toggle="modal">Logout</a></li>
+            </li>
         </div>
+      </nav>
       </header>
+      {% else %}
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{% url 'home:home_notauth' %}"><img src="{% static 'REDLogo.png' %}" width="40" height="30" alt=""/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:home_notauth' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:about_us_notauth' %}">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:register' %}" data-toggle="modal"><i class="icon-user" style="color: #CA5542;"></i> Sign up</a>
+            </li>
+            <li>
+              <a class="nav-link" href= "{% url 'accounts:login' %}" data-toggle="modal">Sign in</a>
+            </li>
+        </div>
+      </nav>
+    </header>
       <!-- end header -->
       {% endif %}
     
@@ -142,190 +98,126 @@
     {% block footer %}
     {% if user.is_authenticated %}
       <div class="container">
-        <div class="row">
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Browse pages</h5>
-              <ul class="link-list">
-                <li><a href="{% url 'home:home' %}">Home</a></li>
-                <li><a href="https://nyuad.nyu.edu">Learn about NYUAD</a></li>
-                <li><a href="#">Meet our team</a></li>
-                <li><a href="#">Get in touch with us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Important stuff</h5>
-              <ul class="link-list">
-                <li><a href="#">Press release</a></li>
-                <li><a href="#">Terms and conditions</a></li>
-                <li><a href="#">Privacy policy</a></li>
-                <li><a href="#">Career center</a></li>
-                <li><a href="#">Flattern forum</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Instagram photostream</h5>
-              <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-              <div class="elfsight-app-886c8cdf-a3cb-4cc9-8af5-0c01796c04a6"></div>
-              <div class="clear">
-              </div>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Get in touch with us</h5>
-              <address>
-								<strong>New York University Abu Dhabbi Co-Lab</strong><br>
-								 New York University Abu Dhabi, Saadiyat Island<br>
-								 Abu Dhabi, United Arab Emirates
-					 		</address>
-              <p>
-                <i class="icon-phone"></i> +971 2 6288920 <br>
-                <i class="icon-envelope-alt"></i> nyuad.colabb@nyu.edu
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="sub-footer">
-        <div class="container">
-          <div class="row">
-            <div class="span6">
-              <div class="copyright">
-                <p>
-                  <span>&copy; NYUAD Co-Lab - All right reserved.</span>
+        <div class="media-container-row content mbr-white">
+            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                <p class="mbr-text">
+                    <strong>Address</strong>
+                    <br>
+                    <br>New York University Abu Dhabi, Saadiyat Island
+                    <br>Abu Dhabi, UAE
+                    <br>
+                    <br>
+                    <br><strong>Contacts</strong>
+                    <br>
+                    <i class="icon-phone"></i> +971 2 6288920 <br>
+                    <i class="icon-envelope-alt"></i> nyuad.colab@nyu.edu
                 </p>
-                <div class="credits">
-                  <!--
-                    All the links in the footer should remain intact.
-                    You can delete the links only if you purchased the pro version.
-                    Licensing information: https://bootstrapmade.com/license/
-                    Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Flattern
-                  -->
-                  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
-              </div>
             </div>
-            <div class="span6">
-              <ul class="social-network">
-                <li><a href="https://www.facebook.com/NYUADEngage" data-placement="bottom" title="Facebook"><i class="fa fa-facebook icon-square"></i></a></li>
-                <li><a href="https://twitter.com/nyuadengage" data-placement="bottom" title="Twitter"><i class="fa fa-twitter icon-square"></i></a></li>
-                <li><a href="https://www.instagram.com/nyuadengage/" data-placement="bottom" title="Instagram"><i class="fa fa-instagram icon-square"></i></a></li>
-              </ul>
+            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                <p class="mbr-text">
+                    <strong>Links</strong>
+                    <br>
+                    <br><a class="text-primary" href="{% url 'home:home' %}">Home</a>
+                    <br><a class="text-primary" href="https://nyuad.nyu.edu">Learn about NYUAD</a>
+                    <br><a class="text-primary" href="#">Meet our team</a>
+                    <br>
+                    <br><strong>Feedback</strong>
+                    <br>
+                    <br>Please send us your ideas, bug reports, suggestions! Any feedback would be appreciated.
+                </p>
             </div>
-          </div>
+            <div class="col-12 col-md-6">
+                <div id="map"></div>
+            </div>
         </div>
-      </div>
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-sm-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row mbr-white">
+                <div class="col-sm-6 copyright">
+                          © Copyright 2019 NYUAD Community Lab - All Rights Reserved        
+                          <a href="https://www.facebook.com/NYUADEngage" data-placement="bottom" title="Facebook"><i class="fa fa-facebook icon-square"></i></a>
+                          <a href="https://twitter.com/nyuadengage" data-placement="bottom" title="Twitter"><i class="fa fa-twitter icon-square"></i></a>
+                          <a href="https://www.instagram.com/nyuadengage/" data-placement="bottom" title="Instagram"><i class="fa fa-instagram icon-square"></i></a>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
       {% else %}
-      <div class="container">
+    <div class="container">
         <div class="row">
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Browse pages</h5>
-              <ul class="link-list">
-                <li><a href="{% url 'home:home_notauth' %}">Home</a></li>
-                <li><a href="https://nyuad.nyu.edu">Learn about NYUAD</a></li>
-                <li><a href="#">Meet our team</a></li>
-                <li><a href="#">Get in touch with us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Important stuff</h5>
-              <ul class="link-list">
-                <li><a href="#">Press release</a></li>
-                <li><a href="#">Terms and conditions</a></li>
-                <li><a href="#">Privacy policy</a></li>
-                <li><a href="#">Career center</a></li>
-                <li><a href="#">Flattern forum</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Instagram photostream</h5>
-              <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-                <div class="elfsight-app-886c8cdf-a3cb-4cc9-8af5-0c01796c04a6"></div>
-              <div class="clear">
-              </div>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Get in touch with us</h5>
-              <address>
-                <strong>New York University Abu Dhabbi Co-Lab</strong><br>
-                 New York University Abu Dhabi, Saadiyat Island<br>
-                 Abu Dhabi, United Arab Emirates
-               </address>
-              <p>
-                <i class="icon-phone"></i> +971 2 6288920 <br>
-                <i class="icon-envelope-alt"></i> nyuad.colab@nyu.edu
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="sub-footer">
-        <div class="container">
-          <div class="row">
-            <div class="span6">
-              <div class="copyright">
+            <div class="col-12 col-md-3">
                 <p>
-                  <span>&copy; NYUAD Co-Lab- All right reserved.</span>
+                    <strong>Address</strong>
+                    <br>
+                    <br>New York University Abu Dhabi, Saadiyat Island
+                    <br>Abu Dhabi, UAE
+                    <br>
+                    <br>
+                    <br><strong>Contacts</strong>
+                    <br>
+                    <i class="icon-phone"></i> +971 2 6288920 <br>
+                    <i class="icon-envelope-alt"></i> nyuad.colab@nyu.edu
                 </p>
-                <div class="credits">
-                  <!--
-                    All the links in the footer should remain intact.
-                    You can delete the links only if you purchased the pro version.
-                    Licensing information: https://bootstrapmade.com/license/
-                    Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Flattern
-                  -->
-                  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
-              </div>
             </div>
-            <div class="span6">
-              <ul class="social-network">
-                <li><a href="https://www.facebook.com/NYUADEngage" data-placement="bottom" title="Facebook"><i class="fa fa-facebook icon-square"></i></a></li>
-                <li><a href="https://twitter.com/nyuadengage" data-placement="bottom" title="Twitter"><i class="fa fa-twitter icon-square"></i></a></li>
-                <li><a href="https://www.instagram.com/nyuadengage/" data-placement="bottom" title="Instagram"><i class="fa fa-instagram icon-square"></i></a></li>
-              </ul>
+            <div class="col-12 col-md-3">
+                    <strong>Links</strong>
+                    <br>
+                    <br><a class="text-primary" href="{% url 'home:home' %}">Home</a>
+                    <br><a class="text-primary" href="https://nyuad.nyu.edu">Learn about NYUAD</a>
+                    <br><a class="text-primary" href="#">Meet our team</a>
+                    <br>
+                    <br><strong>Feedback</strong>
+                    <br>
+                    <br>Please send us your ideas, bug reports, suggestions! Any feedback would be appreciated.
+                </p>
             </div>
-          </div>
+            <div class="col-12 col-md-6">
+                <div id="map"></div>
+            </div>
         </div>
-      </div>
+            <div class="row">
+                <div class="col">
+                          © Copyright 2019 NYUAD Community Lab - All Rights Reserved        
+                          <a href="https://www.facebook.com/NYUADEngage" data-placement="bottom" title="Facebook"><i class="fa fa-facebook icon-square"></i></a>
+                          <a href="https://twitter.com/nyuadengage" data-placement="bottom" title="Twitter"><i class="fa fa-twitter icon-square"></i></a>
+                          <a href="https://www.instagram.com/nyuadengage/" data-placement="bottom" title="Instagram"><i class="fa fa-instagram icon-square"></i></a>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
     {% endif %}
     {% endblock %} 
     </footer> 
-  </div>
   <!-- javascript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="{% static 'js/jquery.js' %}"></script>
-  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
-  <script src="{% static 'js/bootstrap.js' %}"></script>
-  <script src="{% static 'js/jcarousel/jquery.jcarousel.min.js' %}"></script>
-  <script src="{% static 'js/jquery.fancybox.pack.js' %}"></script>
-  <script src="{% static 'js/jquery.fancybox-media.js' %}"></script>
-  <script src="{% static 'js/google-code-prettify/prettify.js' %}"></script>
-  <script src="{% static 'js/portfolio/jquery.quicksand.js' %}"></script>
-  <script src="{% static 'js/portfolio/setting.js' %}"></script>
-  <script src="{% static 'js/jquery.flexslider.js' %}"></script>
-  <script src="{% static 'js/jquery.nivo.slider.js' %}"></script>
-  <script src="{% static 'js/modernizr.custom.js' %}"></script>
-  <script src="{% static 'js/jquery.ba-cond.min.js' %}"></script>
-  <script src="{% static 'js/jquery.slitslider.js' %}"></script>
-  <script src="{% static 'js/animate.js' %}"></script>
-
-  <!-- Template Custom JavaScript File -->
-  <script src="{% static 'js/custom.js' %}"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap4.1.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+     <!-- <script src="{% static 'js/bootstrap4.1.min.js' %}"></script>-->
+ <!-- Template Custom JavaScript File -->
+ <!-- Google Maps-->
+<script>
+// Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        var uluru = {lat: 24.523506, lng: 54.433909, };
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+      }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq8atRhvpS1Ji3db0vcYlAyg4V-_jAumw" type="text/javascript">
+</script>
 </html>
   
   

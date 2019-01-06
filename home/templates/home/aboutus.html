@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %}
+<title>RED|About Us</title>
+<link  href="{% static 'css/about_us.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+<div class ="row">
+  <div class="col-12">
+    <div class="card-overlay">
+      <h1 >Get to know us</h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid padding bg-light first">
+  <br>
+  <div class="row text-center padding">
+    <div class="col-xs-12 col-sm-12 col-md-3 px-0 mx-auto d-block">
+      <img src="{% static 'img/about_us/meaningfulconnections.png' %}" class="img-fluid rightImg">
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-4 text-left">
+      <h3 class="container-fluid hiddenRightHeader">
+        Meaningful Connections
+      </h3>
+      <hr>
+      <p class="container-fluid hiddenRightParagraph" style="color:black;">Dedicated to upholding the university's commitment to facilitating a center
+        for scholarship and innovation, the Office of Community and Education Engagement
+        seeks to develop professional connections that are mutually beneficial for both
+        the university and the client. The office aims to establish ties between the university
+        and companies, NGOs and government organizations from a plethora of fields.
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 container-fluid">
+    </div>
+  </div>
+  <br>
+  <hr>
+</div>
+
+<br>
+  <div class="row second">
+    <div class="col-xs-12 col-sm-12 col-md-4">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 text-right">
+      <h3 class="container-fluid hiddenLeftHeader">
+        Innovation
+      </h3>
+      <hr>
+      <p class="container-fluid hiddenLeftParagraph" style="color:black;">We aim to build connections that promote technological and social innovation.
+         Whether in the form of engaging with partners to develop programs that teach
+         students how to use technology or working with multinational research organizations,
+         the office is prepared to connect partners and the university to ensure the establishment
+         of these relationships
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 px-0 mx-auto d-block">
+        <img src="{% static 'img/about_us/image2.png' %}"class="img-fluid leftImg"></img>
+    </div>
+    <br>
+  </div>
+<div class="container-fluid padding bg-light third">
+  <hr><br>
+  <div class="row text-center third">
+    <div class="col-xs-12 col-sm-12 col-md-3 px-0 mx-auto d-block">
+      <img src="{% static 'img/about_us/image4.png' %}" class="img-fluid rightImg"></img>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 text-left">
+      <h3 class="container-fluid hiddenRightHeader">
+        Education
+      </h3>
+      <hr>
+      <p class="container-fluid hiddenRightParagraph" style="color:black;">We believe in the vital role that education plays in shaping communities
+        and the world. Dedicated to upholding the values upon which NYU Abu Dhabi was
+        founded upon, valuing a diversity of opinion and universal dialogue, the office
+        engages with partners to create programs that benefit students and faculty from
+        NYU Abu Dhabi, universities around the United Arab Emirates, as well as
+        students and faculty from secondary and primary education centers.
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 container-fluid">
+    </div>
+  </div>
+  <br>
+  <hr>
+</div>
+<br>
+  <div class="row fourth"><br>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 text-right">
+      <h3 class="container-fluid hiddenLeftHeader">
+        Community
+      </h3>
+      <hr>
+      <p class="container-fluid hiddenLeftParagraph" style="color:black;"> We believe in the importance of NYU Abu Dhabi's continued integration into
+        the wider Emirati community. The office will continue to develop relationships
+        with important organizations, companies and agencies across the nation as the
+          university and the United Arab Emirates continue to grow together.
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 px-0 mx-auto d-block" style="margin-bottom:20px;">
+        <img src="{% static 'img/about_us/image3.png' %}" class="img-fluid leftImg"></img>
+    </div>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(window).scroll(function(){
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop()>=400){
+    $('.first').addClass('animate');
+  }
+
+});
+$(window).scroll(function(){
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop()>=800){
+    $('.second').addClass('animate');
+  }
+
+});
+$(window).scroll(function(){
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop()>=1200){
+    $('.third').addClass('animate');
+  }
+
+});
+$(window).scroll(function(){
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop()>=1600){
+    $('.fourth').addClass('animate');
+  }
+
+});
+$(window).scroll(function(){
+  console.log($(this).scrollTop());
+  if ($(this).scrollTop()>=400){
+    $('.rightImg,.leftImg').addClass('animate');
+  }
+
+});
+</script>
+{% endblock %}

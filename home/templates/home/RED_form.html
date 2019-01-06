@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
+{% load crispy_forms_tags %}
 {% block title %}
 <title>RED|STEP ONE</title>
 {% endblock %}
@@ -66,30 +67,11 @@
             <h1>Step One</h1>
             <h2>Discover Priorities, Needs, and Expertise</h2>
         </center>
-            <form method = "post">
+            <form class= "form" method = "post">
                 {% csrf_token %}
                 {{ form.non_field_errors }}
                 {{ form.source.errors }}
                 {{ form.source }}
-                <!--
-                <div class = "items">
-                    {% for node in form.fields.user_interests.queryset %}
-                        <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
-                        <label for="user_interest_{{ forloop.counter }}" class="subSectionLabel">
-                        <div class="item">
-                            <div class="item__heading">
-                                {{ node.name }}
-                            </div>
-                            <div class="item__content">
-                                {{ node.description }}
-                            </div>
-                            <div class="item__price">
-                                <img src="{{ node.steponeimage.url }}" width = 240>
-                            </div>
-                        </div>
-                    {% endfor %} 
-                </div>
-                -->
                 <div class = "container">
                     <div class = "row">
                         <div class="span12">

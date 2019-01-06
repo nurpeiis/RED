@@ -1,23 +1,20 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block title %}
 <title>RED|LOGIN</title>
 {% endblock %}
 {% block body %}
 <!-- Sign in Modal -->
-<div id="mySignin">
-    <h4 id="mySigninModalLabel" class = "aligncenter margintop20">Login to your <strong>account</strong></h4>
-  <div class="modal-body aligncenter margintop20">
-    <form class="form-horizontal" method = "post">
-    {% csrf_token %}
-    {{ form.as_p }}
-      <div class="control-group">
-        <div class="controls">
-          <button type="submit" class="btn aligncenter margintop20">Sign in</button>
-        </div>
-        <p class="aligncenter margintop20">
-          Forgot password? <a href="{% url 'accounts:password_reset' %}" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
-        </p>
-      </div>
+<div class="container">
+    <h1 class = "aligncenter margintop20">Login to your <strong>account</strong></h4>
+  <div class="aligncenter margintop20">
+    <form class="form" method = "post">
+      {% csrf_token %}
+      {{ form| crispy }}
+      <button type="submit" class="btn btn-dark aligncenter margintop20">Sign in</button>
+      <p class="aligncenter margintop20">
+        Forgot password? <a href="{% url 'accounts:password_reset' %}" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
+      </p>
     </form>
   </div>
 </div>

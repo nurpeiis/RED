@@ -1,22 +1,21 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block title %}
 <title>RED|Register</title>
 {% endblock %}
 {% block body %}
-<div class="modal-body aligncenter margintop20">
-    <h1> Register </h1>
-    <form class="form-horizontal" method = "post">
-        <!-- csrf toke is used for the security purpose-->
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="control-group">
-        <div class="controls">
-          <button type="submit" class="btn aligncenter margintop20">Sign in</button>
-        </div>
-        <p class="aligncenter margintop20">
-          Have Account? <a href="{% url 'accounts:login' %}" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
-        </p>
-      </div>
-    </form>
+<div class = "container">
+  <div class="modal-body aligncenter margintop20">
+      <h1> Register </h1>
+      <form class="form" method = "post">
+          <!-- csrf toke is used for the security purpose-->
+          {% csrf_token %}
+          {{ form| crispy }}
+          <button type="submit" class="btn btn-dark aligncenter margintop20">Register</button>
+          <p class="aligncenter margintop20">
+            Have Account? <a href="{% url 'accounts:login' %}" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset Password</a>
+          </p>
+      </form>
+  </div>
 </div>
 {% endblock %}

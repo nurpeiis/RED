@@ -7,14 +7,14 @@ from home.models import StepOneInterest, SubSection
 from django.db.utils import OperationalError
 #view for not authorized users:
 class HomeNotAuthView(TemplateView):
-    template_name = 'home/home_notauth.html'
+    template_name = 'home/home.html'
 class HomeView(TemplateView):
     template_name = 'home/home.html'
 
 class AboutUsNotAuthView(TemplateView):
-    template_name = 'home/about_us.html'
+    template_name = 'home/aboutus.html'
 class AboutUsView(TemplateView):
-    template_name = 'home/about_us.html'
+    template_name = 'home/aboutus.html'
 class StepOneView(TemplateView):
     template_name = 'home/RED_form.html'
     def get(self, request):
