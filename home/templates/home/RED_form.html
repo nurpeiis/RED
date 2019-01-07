@@ -25,92 +25,48 @@
             .text{
                 margin:20px 0px;
             }
-            .items {
-                max-width: 1200px;
-            }
-
-            .item {
-                width: 25%;
-                box-sizing: border-box;
-                display: inline-block;
-                vertical-align: top;
-                padding: 0 12px;
-                margin: 24px -4px 24px 0;
-            }
-
-            @media (max-width: 600px) {
-                .item {
-                    width: 50%;
-                }
-            }
-
-            .item__heading {
-                background-color: #d4d0f5;
-                padding: 10px;
-                text-align: center;
-                border: 1px solid #bbbbbb;
-            }
-
-            .item__content {
-                padding: 10px;
-                border-left: 1px solid #bbbbbb;
-                border-right: 1px solid #bbbbbb;
-            }
-            .item__price {
-                background-color: #e0f6d9;
-                padding: 10px;
-                text-align: center;
-                border: 1px solid #bbbbbb;
-            }
         </style>
-        <center>
-            <h1>Step One</h1>
-            <h2>Discover Priorities, Needs, and Expertise</h2>
-        </center>
-            <form class= "form" method = "post">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
-                {{ form.source.errors }}
-                {{ form.source }}
-                <div class = "container">
-                    <div class = "row">
-                        <div class="span12">
-                            <div class="row">
-                                {% for node in form.fields.user_interests.queryset %}
-                                    <div class="span3">
-                                        <div class="box aligncenter">
-                                            <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
-                                            <label for="user_interest_{{ forloop.counter }}" class="subSectionLabel">
-                                                    <div class="header">
-                                                        <h3>{{ node.name }}</h3>
-                                                    </div>
-                                                    <div class = "aligncenter">
-                                                        <img src="{{ node.steponeimage.url }}" width = 240>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>{{ node.section }}</p>
-                                                        <p align="left" style="color:black;" >{{ node.description }}</p>
-                                                    </div>
-                                            </label>
-                                        </div>
+    <div class="container">
+    <center>
+        <h1>Step One</h1>
+        <h2>Discover Priorities, Needs, and Expertise</h2>
+    </center>
+        <form class= "form" method = "post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.source.errors }}
+            {{ form.source }}
+                        <div class="row">
+                            {% for node in form.fields.user_interests.queryset %}
+                                <div class="col-md-3 col-sm-2 col">
+                                    <div class="box aligncenter">
+                                        <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
+                                        <label for="user_interest_{{ forloop.counter }}" class="subSectionLabel">
+                                                <div class="header">
+                                                    <h3>{{ node.name }}</h3>
+                                                </div>
+                                                <div class = "aligncenter">
+                                                    <img src="{{ node.steponeimage.url }}" width = 240>
+                                                </div>
+                                                <div class="text">
+                                                    <p>{{ node.section }}</p>
+                                                    <p align="left" style="color:black;" >{{ node.description }}</p>
+                                                </div>
+                                        </label>
                                     </div>
-                                    {% if forloop.counter|divisibleby:"4" and not forloop.last %}
-                                        </div><div class="row">
-                                    {% endif %}
-                                {% endfor %} 
-                            </div>
+                                </div>
+                                {% if forloop.counter|divisibleby:"4" and not forloop.last %}
+                                    </div><div class="row">
+                                {% endif %}
+                            {% endfor %} 
                         </div>
                     </div>
                 </div>
-                <center>
-                <div class="control-group">
-                    <div class="controls">
-                        <button type="submit" class="btn aligncenter margintop20">Submit</button>
-                    </div>
-                </div>
-                </center>
-            </form> 
-    <script src="{% static 'js/myscript.js' %}"></script>
+            <center>
+            <button type="submit" class="btn btn-dark aligncenter margintop20">Submit</button>
+            </center>
+        </form> 
+    </div>
 {% endblock %}
 
 
