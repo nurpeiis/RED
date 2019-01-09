@@ -4,3 +4,4 @@ db.sqlite3
 /RED/settings/dev.py
 /RED/settings/prod.py
 /RED/settings/local.py
+ 

@@ -30,10 +30,8 @@
   {% endblock %}
     </head>
   <!--Navigation-->
-  <body>
       {% block navigation %}
       <!--Give the user logged in it would have different navigation bar than is he/she is not-->
-    <header>
       {% if user.is_authenticated %}
       <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="{% url 'home:home' %}"><img src="{% static 'REDLogo.png' %}" width="40" height="30" alt=""/></a>
@@ -49,17 +47,17 @@
               <a class="nav-link" href="{% url 'home:form' %}">Step One </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'home:about_us_notauth' %}">About Us</a>
+              <a class="nav-link" href="{% url 'home:about_us' %}">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'accounts:edit_profile' %}" data-toggle="modal"><i class="icon-user" style="color: #CA5542;"></i> Edit Profile</a></li>
+              <a class="nav-link" href="{% url 'accounts:edit_profile' %}"><i class="icon-user" style="color: #CA5542;"></i> Edit Profile</a></li>
             </li>
             <li>
-              <a class="nav-link" href="{% url 'accounts:logout' %}" data-toggle="modal">Logout</a></li>
+              <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a></li>
             </li>
+          </ul>
         </div>
       </nav>
-      </header>
       {% else %}
       <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="{% url 'home:home_notauth' %}"><img src="{% static 'REDLogo.png' %}" width="40" height="30" alt=""/></a>
@@ -68,24 +66,23 @@
         </button>
          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'home:home_notauth' %}">Home</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home:home_notauth' %}">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'home:about_us_notauth' %}">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'accounts:register' %}" data-toggle="modal"><i class="icon-user" style="color: #CA5542;"></i> Sign up</a>
+              <a class="nav-link" href="{% url 'accounts:register' %}"><i class="icon-user" style="color: #CA5542;"></i> Sign up</a>
             </li>
             <li>
-              <a class="nav-link" href= "{% url 'accounts:login' %}" data-toggle="modal">Sign in</a>
+              <a class="nav-link" href= "{% url 'accounts:login' %}">Sign in</a>
             </li>
+            </ul>
         </div>
       </nav>
-    </header>
       <!-- end header -->
       {% endif %}
-    
       {% endblock %}
       <body>
         {% block body %}
@@ -98,9 +95,9 @@
     {% block footer %}
     {% if user.is_authenticated %}
       <div class="container">
-        <div class="media-container-row content mbr-white">
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <p class="mbr-text">
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <p>
                     <strong>Address</strong>
                     <br>
                     <br>New York University Abu Dhabi, Saadiyat Island
@@ -113,8 +110,8 @@
                     <i class="icon-envelope-alt"></i> nyuad.colab@nyu.edu
                 </p>
             </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <p class="mbr-text">
+            <div class="col-12 col-md-3">
+                <p>
                     <strong>Links</strong>
                     <br>
                     <br><a class="text-primary" href="{% url 'home:home' %}">Home</a>
@@ -127,17 +124,14 @@
                 </p>
             </div>
             <div class="col-12 col-md-6">
-                <div id="map"></div>
+                <strong>You can find us here!</strong>
+                <br>
+                <br>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3629.90544698739!2d54.43152131547709!3d24.523353964723952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e677d92660d61%3A0xbf4c33d9aed07984!2sNYU+Abu+Dhabi+Welcome+Center!5e0!3m2!1sen!2s!4v1547043841214" width="380" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>      
             </div>
         </div>
-        <div class="footer-lower">
-            <div class="media-container-row">
-                <div class="col-sm-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="media-container-row mbr-white">
-                <div class="col-sm-6 copyright">
+            <div class="row">
+                <div class="col">
                           © Copyright 2019 NYUAD Community Lab - All Rights Reserved        
                           <a href="https://www.facebook.com/NYUADEngage" data-placement="bottom" title="Facebook"><i class="fa fa-facebook icon-square"></i></a>
                           <a href="https://twitter.com/nyuadengage" data-placement="bottom" title="Twitter"><i class="fa fa-twitter icon-square"></i></a>
@@ -177,7 +171,10 @@
                 </p>
             </div>
             <div class="col-12 col-md-6">
-                <div id="map"></div>
+                <strong>You can find us here!</strong>
+                <br>
+                <br>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3629.90544698739!2d54.43152131547709!3d24.523353964723952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e677d92660d61%3A0xbf4c33d9aed07984!2sNYU+Abu+Dhabi+Welcome+Center!5e0!3m2!1sen!2s!4v1547043841214" width="380" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>            
             </div>
         </div>
             <div class="row">
@@ -198,6 +195,7 @@
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="{% static 'js/bootstrap4.1.min.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
      <!-- <script src="{% static 'js/bootstrap4.1.min.js' %}"></script>-->
