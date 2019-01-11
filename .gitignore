@@ -4,8 +4,5 @@ __pycache__/
 venv/
 *.pyc
 db.sqlite3
-/RED/settings/base.py
-/RED/settings/dev.py
-/RED/settings/prod.py
-/RED/settings/local.py
+
  

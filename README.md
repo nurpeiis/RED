@@ -48,9 +48,18 @@ https://stackoverflow.com/questions/5802189/django-errno-111-connection-refused/
     1. export PYTHONPATH=/Users/nurpeiis/Desktop/RED_Co-LAB/RED
     2. export DJANGO_SETTINGS_MODULE=RED.settings.dev or prod depending on the stage
     3. django-admin runserver
-10. Hierarchial representation of the data for form with MPTT
-11. Notes not to forget:
-    - Purchase license single from bootstrapmade: https://bootstrapmade.com/license/
+10. Some reasoning behind production taken from "Simpleisbetterthancomplex":
+    1. NGINX will receive all requests to the server. But it won’t try to do anything smart if the request data. All it is going to do is decide if the requested information is a static asset that it can serve by itself, or if it’s something more complicated. If so, it will pass the request to Gunicorn.
+
+    The NGINX will also be configured with HTTPS certificates. Meaning it will only accept requests via HTTPS. If the client tries to request via HTTP, NGINX will first redirect the user to the HTTPS, and only then it will decide what to do with the request.
+
+    We are also going to install this certbot to automatically renew the Let’s Encrypt certificates.
+    2. Gunicorn is an application server. Depending on the number of processors the server has, it can spawn multiple workers to process multiple requests in parallel. It manages the workload and executes the Python and Django code.
+
+    3. Django is the one doing the hard work. It may access the database (PostgreSQL) or the file system. But for the most part, the work is done inside the views, rendering templates, all those things that we’ve been coding for the past weeks. After Django process the request, it returns a response to Gunicorn, who returns the result to NGINX that will finally deliver the response to the client.
+
+    4. The last step is to install Supervisor. It’s a process control system and it will keep an eye on Gunicorn and Django to make sure everything runs smoothly. If the server restarts, or if Gunicorn crashes, it will automatically restart it.
+
 Created by Nurpeiis Baimukan on 9/19/18.
 
 Copyright © 2018 Nurpeiis Baimukan. All rights reserved.
