@@ -37,6 +37,7 @@
             {{ form.non_field_errors }}
             {{ form.source.errors }}
             {{ form.source }}
+                        <h3 class="margintop20"><strong>Academics</strong></h3>
                         <div class="row ">
                             {% for node in form.fields.user_interests.queryset %}
                                 <div class="col-md-4 col-sm-6">
@@ -50,14 +51,15 @@
                                                     <img src="{{ node.steponeimage.url }}" width = 240>
                                                 </div>
                                                 <div class="text">
-                                                    <p>{{ node.section }}</p>
                                                     <p style="color:black; align:left;">{{ node.description }}</p>
                                                 </div>
                                         </label>
                                     </div>
                                 </div>
-                                {% if forloop.counter|divisibleby:"3" and not forloop.last %}
-                                    </div><div class="row">
+                                {% if forloop.counter == 6 or forloop.counter == 8 or forloop.counter == 12 or forloop.counter == 15 %}
+                                    </div>
+                                    <h3><strong>{{ node.section }}</strong></h3>
+                                    <div class="row">
                                 {% endif %}
                             {% endfor %} 
                         </div>
