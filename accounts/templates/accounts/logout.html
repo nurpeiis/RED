@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}
+{% load static from staticfiles %}
 <title>RED|LOGOUT</title>
+<link  href="{% static 'css/about_us.css' %}" rel="stylesheet" />
 {% endblock %}
 {% block body %}
-<h1 class="aligncenter margintop20">You are logged out</h1>
+<div class ="row">
+  <div class="col-12">
+    <div class="card-overlay">
+      <h1 >You are logged out</h1>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 

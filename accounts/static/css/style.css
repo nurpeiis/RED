@@ -6,7 +6,9 @@ body {
   line-height: 1.6em;
   color: #656565;
 }
-
+.btn-secondary{
+  background-color: #CB5542;
+}
 
 /* ===================================
 2. layout

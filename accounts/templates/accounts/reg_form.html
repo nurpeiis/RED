@@ -11,7 +11,7 @@
           <!-- csrf toke is used for the security purpose-->
           {% csrf_token %}
           {{ form| crispy }}
-          <button type="submit" class="btn btn-dark aligncenter margintop20">Register</button>
+          <button type="submit" class="btn aligncenter margintop20" style="background-color: #CB5542;">Register</button>
           <p class="aligncenter margintop20">
             Have Account? <a href="{% url 'accounts:login' %}" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset Password</a>
           </p>
