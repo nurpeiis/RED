@@ -11,7 +11,7 @@
     <form class="form" method = "post">
       {% csrf_token %}
       {{ form| crispy }}
-      <button type="submit" class="btn aligncenter margintop20" style="background-color: #CB5542;">Sign in</button>
+      <button type="submit" class="btn aligncenter margintop20" style="background-color: #CB5542; color: white;">Sign in</button>
       <p class="aligncenter margintop20">
         Forgot password? <a href="{% url 'accounts:password_reset' %}" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
       </p>
