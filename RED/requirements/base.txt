@@ -6,7 +6,7 @@ django-haystack==2.8.1
 django-js-asset==1.1.0
 django-multiforloop==0.2.1
 psycopg2==2.7.6.1
-psycopg2-binary==2.7.6.1s
+psycopg2-binary==2.7.6.1
 python-dateutil==2.7.5
 python-decouple==3.1
 python-pptx==0.6.5

@@ -14,14 +14,15 @@ DATABASES = {
 }
 
 #For email sending use SendGrid: use this tutorial https://simpleisbetterthancomplex.com/tutorial/2016/06/13/how-to-send-email.html
-EMAIL_HOST      = 'my-domain.com'
-EMAIL_HOST_PASSWORD = 'my cpanel password'
-EMAIL_HOST_USER = 'my cpanel user'
-EMAIL_PORT      = 25
-EMAIL_USE_TLS   = False
-DEFAULT_FROM_EMAIL  = 'webmaster@my-host.com'
-SERVER_EMAIL    = 'root@my-domain.com'
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = config('EMAIL_HOST', default='')
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 
+DEFAULT_FROM_EMAIL = 'NYUAD Office of Community & Education Engagement- CoLab <noreply@nyuadengage.com>'
+EMAIL_SUBJECT_PREFIX = '[RED] '
 #avoid transmitting the CSRF & sessing cookie over HTTP accidentaly
 CSRF_COOKIE_SECURE= True
 SESSION_COOKIE_SECURE = True
