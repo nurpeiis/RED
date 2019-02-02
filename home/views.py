@@ -22,7 +22,6 @@ class StepOneView(TemplateView):
         form = StepOneInterestForm()
         love = form.fields['user_interests'].queryset
         args = {'form': form, }
-        print(args, args['form'].fields['user_interests'].queryset)
         return render(request, self.template_name, args )
     def post(self, request):
         form = StepOneInterestForm(request.POST)
