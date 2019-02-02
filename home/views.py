@@ -16,7 +16,7 @@ class AboutUsNotAuthView(TemplateView):
 class AboutUsView(TemplateView):
     template_name = 'home/aboutus.html'
 class StepOneView(TemplateView):
-    template_name = 'home/RED_form.1.html'
+    template_name = 'home/RED_form.html'
     def get(self, request):
         #blank if you refresh the page
         form = StepOneInterestForm()
