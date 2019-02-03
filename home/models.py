@@ -29,6 +29,7 @@ class SubSection (models.Model):
         db_table = 'Sub Section collection'
         verbose_name_plural = 'Sub Sections'
         verbose_name = 'Sub Section'
+        ordering = ['section']
     #it will return the name of the interest whenever StageOneInterests is called
     def __str__(self):
         return (self.name)
