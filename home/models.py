@@ -1,7 +1,5 @@
 from django.db import models
 from accounts.models import User
-from mptt.models import MPTTModel, TreeForeignKey, TreeManyToManyField
-from multiselectfield import MultiSelectField
 # Create your models here.
 
 #List of things that NYUAD can offer

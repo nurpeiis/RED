@@ -25,9 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'multiselectfield',
-    'crispy_forms', 
-    'multiforloop', #required for bootstrap forms application
+    'crispy_forms', #required for bootstrap forms application
 ]
 
 MIDDLEWARE = [
