@@ -127,6 +127,22 @@ footer h5 a:hover, footer a:hover {
   float: right;
 }
 
+.map-container {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 65.25%;
+  padding-top: 30px;
+  height: 0;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
 /* =============================
 18. Position & alignment
