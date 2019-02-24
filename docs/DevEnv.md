@@ -49,3 +49,24 @@ Remove previous versions of PostgreSQL
 ```
 https://www.openscg.com/bigsql/postgresql/installers.jsp/
 ```
+
+
+##Start localhost:
+Go into your working directory
+```
+pwd
+```
+Copy the output of this command, lets call it X
+```
+export PYTHONPATH=X
+```
+You saved the path of your working directory into pythonpath
+```
+export DJANGO_SETTINGS_MODULE=RED.settings.dev
+```
+For the development purposes you will use development settings
+```
+django-admin runserver
+```
+Now you can run the website on your computer by going into one of the 
+
