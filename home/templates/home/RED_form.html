@@ -54,7 +54,7 @@
                                             <div class="row">
                                                 <button type="button" class="sectionButton" onclick="section_clicked(3)">
                                                     <h3><span><strong>{{ node.section.name }}</strong></span></h3>
-                                                    <img class="col-md-3" src="{{node.steponeimage.url}}" width="240" align="left" margin-top="10vh">
+                                                    <img class="col-md-3" src="{{node.section.imageResource.url}}" width="240" align="left" margin-top="10vh">
                                                     <p class="col-md-9" align="left"> {{ node.section.description }} </p>
                                                     
                                             </button> 
@@ -67,7 +67,7 @@
                                             <div class="row">
                                                 <button type="button" class="sectionButton" onclick="section_clicked(4)">
                                                     <h3><span><strong>{{ node.section.name }}</strong></span></h3>
-                                                    <img class="col-md-3" src="{{node.steponeimage.url}}" width="240" align="left" margin-top="10vh">
+                                                    <img class="col-md-3" src="{{node.section.imageResource.url}}" width="240" align="left" margin-top="10vh">
                                                     <p class="col-md-9" align="left"> {{ node.section.description }} </p>
                                                     
                                             </button> 
@@ -80,7 +80,7 @@
                                             <div class="row">
                                                 <button type="button" class="sectionButton" onclick="section_clicked(5)">
                                                     <h3><span><strong>{{ node.section.name }}</strong></span></h3>
-                                                    <img class="col-md-3" src="{{node.steponeimage.url}}" width="240" align="left" margin-top="10vh">
+                                                    <img class="col-md-3" src="{{node.section.imageResource.url}}"  width="240" align="left" margin-top="10vh">
                                                     <p class="col-md-9" align="left"> {{ node.section.description }} </p>
                                                     
                                             </button> 
@@ -93,7 +93,7 @@
                                             <div class="row">
                                                 <button type="button" class="sectionButton" onclick="section_clicked(6)">
                                                     <h3><span><strong>{{ node.section.name }}</strong></span></h3>
-                                                    <img class="col-md-3" src="{{node.steponeimage.url}}" width="240" align="left" margin-top="10vh">
+                                                    <img class="col-md-3" src="{{node.section.imageResource.url}}" width="240" align="left" margin-top="10vh">
                                                     <p class="col-md-9" align="left"> {{ node.section.description }} </p>
                                                     
                                             </button> 
@@ -105,7 +105,7 @@
                                         {% if forloop.counter == 18 %}
                                             </div>
                                             <div class="row">
-                                                <button type="button" class="sectionButton" onclick="section_clicked(7)">
+                                                <button style="display: none" type="button" class="sectionButton" onclick="section_clicked(7)">
                                                     <h3><span><strong> Dummy </strong></span></h3>
                                                     <img class="col-md-3" src="{{node.steponeimage.url}}" width="240" align="left" margin-top="10vh">
                                                     <p class="col-md-9" align="left"> {{ node.section.description }} </p>
@@ -115,7 +115,7 @@
                                             
                                             <div class="row" style="display: none" id="subsectionBox7">
                                         {% endif %}
-
+                                        
                                         <div class="col-md-4 col-sm-6" margin="0">
                                             <div class="box aligncenter">
                                                 <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
