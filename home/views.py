@@ -31,6 +31,7 @@ class StepOneView(TemplateView):
             obj_form.save()#save the data in database
             form.save_m2m() # needed since using commit=False
             #clean something like sql injections by code cleaned_data
-            return redirect ('home:form')
+            return redirect ('home:arrange_meeting')
         return render(request, self.template_name, {'form': form}, )
-
+class ArrangeMeeting(TemplateView):
+    template_name = 'home/arrangemeeting.html'
