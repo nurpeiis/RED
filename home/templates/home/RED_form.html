@@ -1,100 +1,149 @@
-{% extends 'base.html' %}
-{% load static from staticfiles %}
-{% load crispy_forms_tags %}
-{% block title %}
-<title>RED|STEP ONE</title>
-{% endblock %}
-{% block body %}
-        <style>
-            .subSectionCheckbox {
-                display: none;
-            }
-            .subSectionCheckbox:checked + .subSectionLabel { 
-                background-color: #E8E8E8;
-            }
-            .box{
-                padding:60px 0px;
-                text-align: center;
-            }
-
-            .box-part{
-                background:#FFF;
-                border-radius:0;
-                padding:60px 10px;
-                margin:30px 0px;
-            }
-            .text{
-                margin:20px 0px;
-            }
-        </style>
-    <div class="container">
-    <center>
-        <h1>Step One</h1>
-        <h2>Discover Priorities, Needs, and Expertise</h2>
-    </center>
-        <form class= "form" method = "post">
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            {{ form.source.errors }}
-            {{ form.source }}
-                        <div class="row ">
-                            {% for node in form.fields.user_interests.queryset %}
-                                {% if forloop.counter == 1 %}
-                                    </div>
-                                    <h3><strong>{{ node.section }}</strong></h3>
-                                    <div class="row">
-                                {% endif %}
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="box aligncenter">
-                                        <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
-                                        <label for="user_interest_{{ forloop.counter }}" class="subSectionLabel">
-                                                <div class="header">
-                                                    <h3>{{ node.name }}</h3>
-                                                </div>
-                                                <div class = "aligncenter">
-                                                    <img src="{{ node.steponeimage.url }}" width = 240>
-                                                </div>
-                                                <div class="text">
-                                                    <p style="color:black; align:left;">{{ node.description }}</p>
-                                                </div>
-                                        </label>
-                                    </div>
-                                </div>
-                                {% if forloop.counter == 4 %}
-                                    </div>
-                                    <h3><strong>Arts & Culture</strong></h3>
-                                    <div class="row">
-                                {% endif %}
-                                {% if forloop.counter == 6 %}
-                                    </div>
-                                    <h3><strong>HR & Internships</strong></h3>
-                                    <div class="row">
-                                {% endif %}
-                                {% if forloop.counter == 8 %}
-                                    </div>
-                                    <h3><strong>Innovation</strong></h3>
-                                    <div class="row">
-                                {% endif %}
-                                {% if forloop.counter == 12 %}
-                                    </div>
-                                    <h3><strong>Health & Wellness</strong></h3>
-                                    <div class="row">
-                                {% endif %}
-                                {% if forloop.counter == 14 %}
-                                    </div>
-                                    <h3><strong>Others</strong></h3>
-                                    <div class="row">
-                                {% endif %}
-                            {% endfor %} 
-                        </div>
-                    </div>
-                </div>
+        {% extends 'base.html' %}
+        {% load static from staticfiles %}
+        {% load crispy_forms_tags %}
+        {% load static %}
+        {% block title %}
+        <title>RED|STEP ONE</title>
+        <script src="{% static 'js/RED_form.js' %}"></script> 
+        <link  href="{% static 'css/RED_form.css' %}" rel="stylesheet" />
+        {% endblock %}
+        {% block body %}
+            <div class="container">
             <center>
-            <button type="submit" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white;">Submit</button>
+                <strong><h1 style="font-weight: 900">Step One</h1></strong>
+                <h2>Discover Priorities, Needs, and Expertise</h2>
             </center>
-        </form> 
-    </div>
-{% endblock %}
+
+            <form class= "form" method = "post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.source.errors }}
+                {{ form.source }}
+                    
+                            <div class="row">
+                                {% for node in form.fields.user_interests.queryset %}
+                                        {% if forloop.counter == 1 %}
+                                        <button type="button" class="sectionButton" onclick="section_clicked(1)">
+                                
+                                                <h3><span><strong>{{ node.section.name }}</strong></span></h3>
+                                                
+                                                <img class="col-md-3" src="{{node.section.imageResource.url}}" width="240" align="left">
+                                                <p class="col-md-9" align="left"> {{node.section.description}}</p> 
+                                            
+                                        </button>
+                                        
+                                            </div>
+                                        
+                                            <div class="row" style="display: none"  id="subsectionBox1">
+                                        {% endif %}
+                                        {% if forloop.counter  == 5 %}
+                                            </div>
+                                            <div class="row">
+                                                <button type="button" class="sectionButton" onclick="section_clicked(2)">
+                                                    <h3><span><strong>{{ node.section.name }}</strong></span></h3>
+                                                    <img class="col-md-3" src="{{node.section.imageResource.url}}" width="240" align="left" margin-top="10vh">
+                                                    <p class="col-md-9" align="left"> {{ node.section.description }}</p>
+                                                    
+                                            </button> 
+                                            </div>
+                                             
+                                            <div class="row" style="display: none" id="subsectionBox2">
+                                        {% endif %}
+                                        {% if forloop.counter == 7 %}
+                                            </div>
+                                            <div class="row">
+                                                <button type="button" class="sectionButton" onclick="section_clicked(3)">
+                                                    <h3><span><strong>{{ node.section.name }}</strong></span></h3>
+                                                    <img class="col-md-3" src="{{node.section.imageResource.url}}" width="240" align="left" margin-top="10vh">
+                                                    <p class="col-md-9" align="left"> {{ node.section.description }} </p>
+                                                    
+                                            </button> 
+                                            </div>
+                                            
+                                            <div class="row" style="display: none" id="subsectionBox3">
+                                        {% endif %}
+                                        {% if forloop.counter == 9 %}
+                                            </div>
+                                            <div class="row">
+                                                <button type="button" class="sectionButton" onclick="section_clicked(4)">
+                                                    <h3><span><strong>{{ node.section.name }}</strong></span></h3>
+                                                    <img class="col-md-3" src="{{node.section.imageResource.url}}" width="240" align="left" margin-top="10vh">
+                                                    <p class="col-md-9" align="left"> {{ node.section.description }} </p>
+                                                    
+                                            </button> 
+                                            </div>
+                                            
+                                            <div class="row" style="display: none" id="subsectionBox4">
+                                        {% endif %}
+                                        {% if forloop.counter == 11 %}
+                                            </div>
+                                            <div class="row">
+                                                <button type="button" class="sectionButton" onclick="section_clicked(5)">
+                                                    <h3><span><strong>{{ node.section.name }}</strong></span></h3>
+                                                    <img class="col-md-3" src="{{node.section.imageResource.url}}"  width="240" align="left" margin-top="10vh">
+                                                    <p class="col-md-9" align="left"> {{ node.section.description }} </p>
+                                                    
+                                            </button> 
+                                            </div>
+                                            
+                                            <div class="row" style="display: none" id="subsectionBox5">
+                                        {% endif %}
+                                        {% if forloop.counter == 15 %}
+                                            </div>
+                                            <div class="row">
+                                                <button type="button" class="sectionButton" onclick="section_clicked(6)">
+                                                    <h3><span><strong>{{ node.section.name }}</strong></span></h3>
+                                                    <img class="col-md-3" src="{{node.section.imageResource.url}}" width="240" align="left" margin-top="10vh">
+                                                    <p class="col-md-9" align="left"> {{ node.section.description }} </p>
+                                                    
+                                            </button> 
+                                            </div>
+                                            
+                                            <div class="row" style="display: none" id="subsectionBox6">
+                                        {% endif %}
+                                        
+                                        {% if forloop.counter == 18 %}
+                                            </div>
+                                            <div class="row">
+                                                <button style="display: none" type="button" class="sectionButton" onclick="section_clicked(7)">
+                                                    <h3><span><strong> Dummy </strong></span></h3>
+                                                    <img class="col-md-3" src="{{node.steponeimage.url}}" width="240" align="left" margin-top="10vh">
+                                                    <p class="col-md-9" align="left"> {{ node.section.description }} </p>
+                                                    
+                                            </button> 
+                                            </div>
+                                            
+                                            <div class="row" style="display: none" id="subsectionBox7">
+                                        {% endif %}
+                                        
+                                        <div class="col-md-4 col-sm-6" margin="0">
+                                            <div class="box aligncenter">
+                                                <input type="checkbox" class="subSectionCheckbox" name="user_interests" id="user_interest_{{ forloop.counter }}" value="{{ forloop.counter }}">
+                                                <label for="user_interest_{{ forloop.counter }}" class="subSectionLabel">
+                                                        <div class="header">
+                                                            <h3>{{ node.name }}</h3>
+                                                        </div>
+                                                        <div class = "aligncenter">
+                                                            <img src="{{ node.steponeimage.url }}" width = 240>
+                                                        </div>
+                                                        <div class="text">
+                                                            <p style="color:black; align: left;">{{ node.description }}</p>
+                                                        </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                             
+                                    {% endfor %} 
+                                </div>
+                            </div>
+                        </div>
+                    <center>
+                            
+                    <button type="submit" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Submit</button>
+                    </center>
+                </form> 
+            </div>
+        {% endblock %}
 
 
 
