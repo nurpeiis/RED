@@ -51,10 +51,11 @@ class StepOneInterest (models.Model):
     created = models.DateTimeField (auto_now_add = True, blank =True)
     updated = models.DateTimeField (auto_now = True, blank =True)
     def __str__(self):
-        return (self.user)
+        return str(self.user)+ " " + str(self.created)
 
-class SmartGoals(models.Models):
+"""
+class SmartGoals(models.Model):
     nameEvent = models.CharField(max_length=50, unique=True)
     dateField = models.DateTimeField ()
-    
+"""    
 

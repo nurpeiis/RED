@@ -35,3 +35,5 @@ class StepOneView(TemplateView):
         return render(request, self.template_name, {'form': form}, )
 class ArrangeMeeting(TemplateView):
     template_name = 'home/arrangemeeting.html'
+class StepTwoView(TemplateView):
+    template_name = 'home/secondstep.html'

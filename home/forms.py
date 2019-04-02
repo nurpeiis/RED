@@ -22,6 +22,7 @@ class StepOneInterestForm(forms.ModelForm):
         fields = ('user_interests', )
         widgets = {'sub': forms.CheckboxSelectMultiple}
    
+"""   
 class SmartGoalsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        
+"""
