@@ -36,4 +36,4 @@ class StepOneView(TemplateView):
 class ArrangeMeeting(TemplateView):
     template_name = 'home/arrangemeeting.html'
 class StepTwoView(TemplateView):
-    template_name = 'home/secondstep.html'
+    template_name = 'home/manage_projects.html'

@@ -8,9 +8,11 @@
 {% block body %}
     <div class = "container">
         <center>
-            <h1>Step Two</h1>
+            <h1> Step Two</h1>
+            <h2> My Projects <h2>
             <p>Step two is dedicated for planning your project in a SMART way </p>
-            <button type="submit" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Manage Project</button>
+            <p> In order to see your projects and/or create new project press Manage projects</p>
+            <button onclick="location.href='{% url 'home:about_us' %}'" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Manage Project</button>
         </center>
     </div>
 {% endblock %}
