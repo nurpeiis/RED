@@ -14,5 +14,10 @@
             <p> In order to see your projects and/or create new project press Manage projects</p>
             <button onclick="location.href='{% url 'home:about_us' %}'" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Manage Project</button>
         </center>
+        {% for obj in object_list %}
+            <a href = "{{ obj.get_absolute_url }}">{{ obj.name }}</a>
+            <p>{{ obj.description }}</p>
+            <p>{{ obj.slug }}
+        {% endfor %}
     </div>
 {% endblock %}

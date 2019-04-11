@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.fields import MultipleChoiceField
-from home.models import StepOneInterest, SubSection
+from home.models import StepOneInterest, SubSection, Project
 from mptt.forms import TreeNodeMultipleChoiceField, TreeNodeChoiceField
 from django.forms import CheckboxSelectMultiple
 from django.db.utils import OperationalError
@@ -21,8 +21,9 @@ class StepOneInterestForm(forms.ModelForm):
             #comma should be put at the end so that it will be tuple, if there is one variable to the element
         fields = ('user_interests', )
         widgets = {'sub': forms.CheckboxSelectMultiple}
-   
 """   
-class SmartGoalsForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
+class ProjectPostForm(forms.ModelForm):
+    class Meta():
+        model = Project
+        fields = ('')
 """

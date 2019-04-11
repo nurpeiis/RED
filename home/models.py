@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.db import models
 from django.conf import settings
 from accounts.models import User
@@ -102,10 +103,12 @@ class Project(models.Model):
         
 
     def __str__(self):
-        return self.name, self.description
+        #return not toople
+        template = '{0.name} {0.description}'
+        return template.format(self)
     def get_absolute_url(self):
         from django.urls import reverse
-        return reverse("projects:detail", kwargs={"slug": self.slug})
+        return reverse("home:project", kwargs={"slug": self.slug})
     
     def refresh_totals(self, save=True):
         now = timezone.now()

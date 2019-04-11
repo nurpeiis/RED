@@ -1,10 +1,11 @@
 from django.views.generic import TemplateView
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.template import RequestContext
 from accounts.models import User
-from home.forms import StepOneInterestForm
-from home.models import StepOneInterest, SubSection
+from home.forms import StepOneInterestForm, ProjectPostForm
+from home.models import StepOneInterest, SubSection, Project
 from django.db.utils import OperationalError
+from django.http import HttpResponse
 #view for not authorized users:
 class HomeNotAuthView(TemplateView):
     template_name = 'home/home.html'
@@ -36,4 +37,19 @@ class StepOneView(TemplateView):
 class ArrangeMeeting(TemplateView):
     template_name = 'home/arrangemeeting.html'
 class StepTwoView(TemplateView):
-    template_name = 'home/manage_projects.html'
+    template_name = 'home/step_two.html'
+    def get(self, request):
+        queryset = Project.objects.all()
+        context = {
+            "object_list":queryset,
+            "title": "Experiment"
+        }
+        return render(request, self.template_name, context)
+class ProjectView(TemplateView):
+    template_name = "home/project_detail.html"
+class ProjectPostView(TemplateView):
+    form = ProjectPostForm()
+#create step 2 view to create new projects. Check following features:
+#1. Adding multiple users
+#2. Unique Slug
+#3. Modify the posts
