@@ -48,7 +48,20 @@ class StepTwoView(TemplateView):
 class ProjectView(TemplateView):
     template_name = "home/project_detail.html"
 class ProjectPostView(TemplateView):
-    form = ProjectPostForm()
+    template_name = "home/project_post.html"
+    def get(self, request):
+        form = ProjectPostForm()
+        return render(request, self.template_name, {'form': form})
+    def post(self, request):
+        form = ProjectPostForm(request.POST)
+        if form.is_valid():
+            obj_form = form.save(commit = False)
+            obj_form.owner = request.user # make the owner the user who created the project
+            obj_form.save()#save the data in database
+            form.save_m2m() # needed since using commit=False
+            #clean something like sql injections by code cleaned_data
+            return redirect ('home:arrange_meeting')
+        return render(request, self.template_name, {'form': form}, )
 #create step 2 view to create new projects. Check following features:
 #1. Adding multiple users
 #2. Unique Slug

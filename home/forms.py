@@ -21,9 +21,8 @@ class StepOneInterestForm(forms.ModelForm):
             #comma should be put at the end so that it will be tuple, if there is one variable to the element
         fields = ('user_interests', )
         widgets = {'sub': forms.CheckboxSelectMultiple}
-"""   
+  
 class ProjectPostForm(forms.ModelForm):
-    class Meta():
+    class Meta:
         model = Project
-        fields = ('')
-"""
+        fields = ['name', 'subsection', 'members', 'description', ]

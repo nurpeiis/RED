@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+    <title>RED|Projects</title>
+{% endblock %}
+{% block body %}
+    <div class = "container">
+        <h1>My projects</h1>
+        <form class= "form" method = "post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.source.errors }}
+                {{ form.source }}
+                {{ form.as_p }}
+                <button type="submit" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Submit</button>
+        </form>
+    </div>
+{% endblock %}
