@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms', #required for bootstrap forms application
+    'django_select2',
 ]
 
 MIDDLEWARE = [

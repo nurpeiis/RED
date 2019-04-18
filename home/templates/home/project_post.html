@@ -16,5 +16,23 @@
                 {{ form.as_p }}
                 <button type="submit" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Submit</button>
         </form>
+        <form class="form-inline my-2 my-lg-0">
+            <input 
+                class="form-control mr-sm-2" 
+                type="search" 
+                placeholder="Search" 
+                aria-label="Search"
+                name="search"
+                value="{{request.GET.search}}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <ul class = "list-group">
+            {% for user in filter %}
+            <li>{{ user.username }} = {{ user.first_name }} </li>
+            {% endfor %}
+        </ul>
     </div>
+    {{ form.media }}
+    <script>
+    </script>
 {% endblock %}

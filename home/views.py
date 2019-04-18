@@ -51,7 +51,14 @@ class ProjectPostView(TemplateView):
     template_name = "home/project_post.html"
     def get(self, request):
         form = ProjectPostForm()
-        return render(request, self.template_name, {'form': form})
+        user_list = User.objects.all()
+        search_term = ''
+        if 'search' in request.GET:
+            search_term = request.GET['search']
+            user_list = user_list.filter(username__icontains=search_term, first_name__icontains=search_term)#icontains is lowercasing
+        context = {'form': form, 'filter': user_list}
+        print(user_list)
+        return render(request, self.template_name, context)
     def post(self, request):
         form = ProjectPostForm(request.POST)
         if form.is_valid():
