@@ -15,7 +15,7 @@
             {% endfor %}
         </ul>
         {% endif %}
-        <a href = "{{ instance.get_absolute_url }}">{{ instance.name }}</a>
+        <h2>{{ instance.name }}</h2>
         <p>{{ instance.description }}</p>
         <p> {{ instance.slug }} </p>
         <button onclick="location.href='{{ instance.get_absolute_url }}edit'" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Edit Project</button>
