@@ -8,9 +8,10 @@ STATIC_ROOT =  '../static/'
 STATIC_URL = '/static/'
 MEDIA_ROOT = '../media/'
 MEDIA_URL = '/media/'
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'frontend/dist'),
+)
 
 
 
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
     'crispy_forms', #required for bootstrap forms application
     'django_filters',
     'rest_framework',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -44,10 +46,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'RED.urls'
 AUTH_USER_MODEL = 'accounts.User'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -12,7 +12,16 @@ DATABASES = {
         conn_max_age=60
     )
 }
-
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': '',
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend/webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
+}
 #For email debugging purposes
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025

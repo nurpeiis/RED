@@ -1,0 +1,152 @@
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6em;
+  color: #656565;
+}
+.btn-secondary{
+  background-color: #CB5542;
+}
+
+/* ===================================
+2. layout
+==================================== */
+
+.carousel-caption h2 {
+  font-size: 3vw;
+}
+.carousel-caption p {
+  font-size: 1.5vw;
+}
+
+
+.aligncenter {
+  text-align: center;
+}
+
+.aligncenter span {
+  margin-left: 0;
+}
+
+
+.clear-marginbot {
+  margin-bottom: 0;
+}
+
+.marginbot10 {
+  margin-bottom: 10px;
+}
+
+.marginbot20 {
+  margin-bottom: 20px;
+}
+
+.marginbot30 {
+  margin-bottom: 30px;
+}
+
+.marginbot40 {
+  margin-bottom: 40px;
+}
+
+.clear-margintop {
+  margin-top: 0;
+}
+
+.margintop10 {
+  margin-top: 10px;
+}
+
+.margintop20 {
+  margin-top: 20px;
+}
+
+.margintop30 {
+  margin-top: 30px;
+}
+
+.margintop40 {
+  margin-top: 40px;
+}
+
+
+/* ===============================
+16. Footer
+================================ */
+
+footer {
+  background: #111;
+  padding: 50px 0 0 0;
+  color: #bbb;
+}
+
+footer a {
+  color: #eee;
+}
+
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+  color: #eee;
+}
+
+footer address {
+  line-height: 1.6em;
+}
+
+footer h5 a:hover, footer a:hover {
+  text-decoration: none;
+}
+
+
+#sub-footer {
+  background: #0a0a0a;
+  text-shadow: none;
+  color: #5d5d5d;
+  padding: 0;
+  padding-top: 30px;
+  margin: 20px 0 0 0;
+}
+
+#sub-footer p {
+  margin: 0;
+  padding: 0;
+}
+
+#sub-footer span {
+  color: #c7c7c7;
+}
+
+.copyright {
+  text-align: left;
+  font-size: 12px;
+  color: #ddd;
+}
+
+#sub-footer ul.social-network {
+  float: right;
+}
+
+.map-container {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 65.25%;
+  padding-top: 30px;
+  height: 0;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* =============================
+18. Position & alignment
+============================= */
+
+
+

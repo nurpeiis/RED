@@ -1,0 +1,97 @@
+.subSectionCheckbox {
+    display: none;
+}
+.subSectionCheckbox:checked + .subSectionLabel { 
+    background-color: #E8E8E8;
+}
+.box{
+    padding:60px 0px;
+    text-align: center;
+}
+
+.box-part{
+    background:#FFF;
+    border-radius:0;
+    padding:60px 10px;
+    margin:30px 0px;
+}
+.text{
+    margin:20px 0px;
+}
+
+.sectionButton {
+    width: 100%;
+    height: auto;
+    padding: 3%;
+    margin-top: 5%;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-color: #b63d31 #ffffff;
+    border-width: 0px;
+    z-index: 1;
+    /* background: linear-gradient(to bottom, #b63d31 50%, #ffffff 50%); */
+}
+
+.sectionButton .heading {
+    background-color: #b63d31;
+    height: 30px;
+    width: 100%;
+    margin: 0;
+}
+
+.sectionButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    float: left;
+    padding-left: 5px;
+    /* background-image: linear-gradient(to bottom, transparent 65%, #cf352c 10%);
+    background-size: 0% 100%;
+    background-repeat: no repeat; */
+}
+
+.sectionButton span:after {
+    content: '\00bb';
+    font-size: 30px;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    height: 0;
+    transition: 0.5s;
+    margin-bottom: 30px;
+}
+
+.sectionButton:hover span {
+    padding-right: 25px;
+}
+
+.sectionButton:hover span:after {
+    opacity: 1;
+    right: 0;
+    padding: 0;
+}
+
+.sectionButton img {
+    display: block;
+    float: left;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.sectionButton p {
+    display: block;
+    float: left;
+    padding-top: 20px;
+}
+
+.sectionButton h3 {
+    background-color: #b63d31;
+    text-align: left;
+    padding-left: 10px;
+    height: 60px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    color: #ebe4e4;
+}

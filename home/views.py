@@ -106,3 +106,5 @@ def project_update(request, slug=None):
     }
     return render(request, template_name, context)
        
+class TestView(TemplateView):
+    template_name = 'home/test.html'
