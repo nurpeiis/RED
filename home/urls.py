@@ -1,5 +1,5 @@
 from django.urls import include,  path
-from home.views import HomeNotAuthView, HomeView, StepOneView, StepTwoView, AboutUsNotAuthView, AboutUsView, ArrangeMeeting, ProjectView
+from home.views import HomeNotAuthView, HomeView, StepOneView, StepTwoView, AboutUsNotAuthView, AboutUsView, ArrangeMeeting, ProjectView, TeamView
 
 app_name = 'home'
 urlpatterns = [
@@ -11,4 +11,5 @@ urlpatterns = [
     path('about-us-notauth/', AboutUsNotAuthView.as_view(), name='about_us_notauth'),
     path('about-us/', AboutUsView.as_view(), name='about_us'),
     path('project/<slug:slug>/', ProjectView.as_view(), name = 'project' ),
+    path('team/', TeamView.as_view(), name = 'team' ),
 ]

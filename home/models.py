@@ -52,6 +52,13 @@ class StepOneInterest (models.Model):
     def __str__(self):
         return str(self.user)+ " " + str(self.created)
 
+class Team(models.Model):
+    name = models.CharField(max_length = 50, unique = True, blank = False)
+    title = models.CharField(max_length = 50, blank = False, default='title_default')
+    description = models.TextField(blank = False)
+    image = models.ImageField(upload_to = 'team_image', blank = True)
+    linkedin = models.URLField(blank = True)
+
 class Project(models.Model):
     name = models.CharField(max_length=250, null=False, blank=False,
                                     verbose_name=_("name"))
