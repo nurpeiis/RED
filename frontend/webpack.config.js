@@ -1,13 +1,18 @@
 var path = require('path')
 var webpack = require('webpack')
-
+var BundleTracker = require('webpack-bundle-tracker')
+var WriteFilePlugin = require('write-file-webpack-plugin')
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: 'bundle.js'
   },
+  plugins: [
+    new BundleTracker({filename: './webpack-stats.json'}),
+    new WriteFilePlugin()
+    ],
   module: {
     rules: [
       {
