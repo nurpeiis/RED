@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template import RequestContext
 from accounts.models import User
-from home.forms import StepOneInterestForm
+from home.forms import StepOneInterestForm, ProjectPostForm
 from home.models import StepOneInterest, SubSection, Project, Team
 from django.db.utils import OperationalError
 from django.http import HttpResponse
