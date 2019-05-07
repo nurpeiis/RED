@@ -19,12 +19,16 @@ from django.urls import include, path
 from RED import views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from rest_framework import routers
+from home.viewset import ProjectListViewSet
+router = routers.DefaultRouter()
+router.register('projects', ProjectListViewSet)
 urlpatterns = [
     path('', views.home_redirect, name = 'home_redirect'), #redirect to home page if just website name is written
     path('admin/', admin.site.urls),
     #namespace give opportunity to use same name in different apps
     path('account/', include('accounts.urls', namespace = 'accounts')), #take the urls from accounts folder
     path('home/', include('home.urls', namespace = 'home')), #take the urls from accounts folder
+    path('api/', include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

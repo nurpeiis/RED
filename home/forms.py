@@ -1,11 +1,13 @@
 from django import forms
 from django.forms.fields import MultipleChoiceField
-from home.models import StepOneInterest, SubSection, Project, Team
-from mptt.forms import TreeNodeMultipleChoiceField, TreeNodeChoiceField
+from home.models import StepOneInterest, SubSection, Project, Membership, Team
+from accounts.models import User
 from django.forms import CheckboxSelectMultiple
 from django.db.utils import OperationalError
-
-
+from better_filter_widget import BetterFilterWidget
+import home.widgets as widgets
+from django_select2.forms import Select2MultipleWidget
+import django_filters
 class StepOneInterestForm(forms.ModelForm):
     #interests = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=SubSection.objects.all())
     def __init__(self, *args, **kwargs):

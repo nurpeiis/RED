@@ -69,10 +69,9 @@ class Project(models.Model):
     description = models.TextField(null=False, blank=False,
                                     verbose_name=_("description"))
     logo = models.FileField(upload_to ='image', blank = True, null=True, verbose_name=_("logo"))
-    created_date = models.DateTimeField(null=False, blank=False,
-                                        default=timezone.now, verbose_name=_("created date"))
-    modified_date = models.DateTimeField(null=False, blank=False,
-                                         verbose_name=_("modified date"), default=timezone.now)
+    created_date = models.DateTimeField(null=False, blank=False, auto_now_add=True, verbose_name=_("created date"))
+    modified_date = models.DateTimeField(null=False, blank=False,auto_now=True,
+                                         verbose_name=_("modified date"))
     owner = models.ForeignKey(User, null=True, blank=True,
                               related_name="owned_projects", verbose_name=_("owner"), on_delete = models.CASCADE)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="projects", 

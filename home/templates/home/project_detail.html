@@ -8,6 +8,16 @@
 {% block body %}
     <div class = "container">
         <h1>My projects</h1>
-        
+        {% if messages %}
+        <ul class = "messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class = "{{ message.tags }}"{% endif %}> {{message}} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h2>{{ instance.name }}</h2>
+        <p>{{ instance.description }}</p>
+        <p> {{ instance.slug }} </p>
+        <button onclick="location.href='{{ instance.get_absolute_url }}edit'" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Edit Project</button>
     </div>
 {% endblock %}

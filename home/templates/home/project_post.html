@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+    <title>RED|Projects</title>
+{% endblock %}
+{% block body %}
+    <div class = "container">
+        <h1>My projects</h1>
+        <form class= "form" method = "post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.source.errors }}
+                {{ form.source }}
+                {{ form.as_p }}
+                <button type="submit" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Submit</button>
+        </form>
+        <form class="form-inline my-2 my-lg-0">
+            <input 
+                class="form-control mr-sm-2" 
+                type="search" 
+                placeholder="Search" 
+                aria-label="Search"
+                name="search"
+                value="{{request.GET.search}}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <ul class = "list-group">
+            {% for user in filter %}
+            <li>{{ user.username }} = {{ user.first_name }} </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script>
+    </script>
+{% endblock %}

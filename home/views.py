@@ -6,6 +6,7 @@ from home.forms import StepOneInterestForm
 from home.models import StepOneInterest, SubSection, Project, Team
 from django.db.utils import OperationalError
 from django.http import HttpResponse
+from django.contrib import messages
 #view for not authorized users:
 class HomeNotAuthView(TemplateView):
     template_name = 'home/home.html'
@@ -32,7 +33,10 @@ class StepOneView(TemplateView):
             obj_form.save()#save the data in database
             form.save_m2m() # needed since using commit=False
             #clean something like sql injections by code cleaned_data
+            messages.success(request, "Successfully Submited the First Step Form")
             return redirect ('home:arrange_meeting')
+        else:
+            messages.error(request, "No success")
         return render(request, self.template_name, {'form': form}, )
 class ArrangeMeeting(TemplateView):
     template_name = 'home/arrangemeeting.html'
@@ -53,11 +57,3 @@ class TeamView(TemplateView):
         queryset = Team.objects.all()
         print(queryset)
         return render(request, self.template_name, {'queryset': queryset})
-
-class ProjectView(TemplateView):
-    template_name = "home/project_detail.html"
-
-#create step 2 view to create new projects. Check following features:
-#1. Adding multiple users
-#2. Unique Slug
-#3. Modify the posts

@@ -7,17 +7,35 @@
 {% endblock %}
 {% block body %}
     <div class = "container">
-        <center>
-            <h1> Step Two</h1>
-            <h2> My Projects <h2>
-            <p>Step two is dedicated for planning your project in a SMART way </p>
-            <p> In order to see your projects and/or create new project press Manage projects</p>
-            <button onclick="location.href='{% url 'home:about_us' %}'" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Manage Project</button>
-        </center>
+        <div class = "row">
+            <div class = "col-8">
+                <h2> Manage Your Projects </h2>
+            </div>
+            <div class = "col-4">
+                <button onclick="location.href='{% url 'home:project_post' %}'" class="btn" style="background-color: #CB5542; color: white;">Create Project</button> 
+            </div>
+        </div>
         {% for obj in object_list %}
-            <a href = "{{ obj.get_absolute_url }}">{{ obj.name }}</a>
-            <p>{{ obj.description }}</p>
-            <p>{{ obj.slug }}
+            <div class = "row">
+                <div class = "col-8">
+                    {{forloop.counter}} <a href = "{{ obj.get_absolute_url }}">{{ obj.name }}</a>
+                    <p>{{ obj.description }}</p>
+                    <p>{{ obj.slug }} </p>
+                </div>
+                {% if forloop.counter == 1 %}
+                    <div class = "col-4">
+                        <p>Step two is dedicated for planning your project in a SMART way </p>
+                    </div>
+                {% endif %}
+                {% if forloop.counter == 2 %}
+                    <div class = "col-4">
+                        <p> In order to see your projects and/or create new project press Manage projects</p>
+                    </div>
+                {% endif %}
+            </div>
         {% endfor %}
     </div>
+     <center>
+        
+    </center>
 {% endblock %}

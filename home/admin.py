@@ -11,7 +11,7 @@ class SubSectionAdmin (admin.ModelAdmin):
     def description(self, obj):
         return obj.description
 class ProjectAdmin (admin.ModelAdmin):
-    list_display = ('name', 'description')
+    list_display = ('name', 'description', 'modified_date', 'created_date')
     def description(self, obj):
         return obj.description
 class StepOneInterestAdmin(admin.ModelAdmin):
