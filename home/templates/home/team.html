@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load static %}
+{% block title %}
+<title>RED|Team</title>
+<script src="{% static 'js/team.js' %}"></script> 
+<link href="{% static 'css/team.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <center>
+        <strong><h1 style="font-weight: 900">Meet the Team</h1></strong>
+        <h2>CoLab of NYU Abu Dhabi</h2>
+    </center>
+
+    <div class="member-layout" style="transform: translate3d(0px,0px,0px)">
+
+        {% for member in queryset %}
+
+            <div class="member-container" style="background-image: url( '{{ member.image.url }}' );" onClick="showImage('{{ member.image.url }}', '{{member.name}}', '{{member.title}}', '{{member.description}}', '{{member.linkedin}}')">
+                
+                <div class="member-text" width="100%" > 
+                    <span class="member-text-name"> {{member.name}} </span> <br>
+                    <span class="member-text-description"> {{member.title}} </span>
+                </div>
+                    
+            </div>
+
+            {% if forloop.counter == 2 %}
+
+            <div class="full-square"></div>
+        
+            {% endif %}
+
+            {% if forloop.counter == 4 %}
+
+            <div class="full-square"></div>
+        
+            {% endif %}
+
+            {% if forloop.counter == 11 %}
+
+            <div class="full-square"></div>
+        
+            {% endif %}
+
+            {% if forloop.counter == 12 %}
+
+            <div class="full-square"></div>
+        
+            {% endif %}
+
+    
+        {% endfor %}
+
+
+    </div>
+</div>
+
+<div id="largeImagePanel" onclick="hideMe()">
+    <div id="largeImage-container">
+        <img id="largeImg" src="">
+        <div id="largeImg-textbox">
+            <p id="largeImg-name"></p>
+            <p id="largeImg-title"></p>
+            <p id="largeImg-description"></p>
+            <p id="largeImg-linkedin"></p>
+        </div>
+     </div>
+</div>
+
+
+
+  
+{% endblock %}

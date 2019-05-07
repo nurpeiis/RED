@@ -1,0 +1,128 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.member-layout {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+}
+
+.member-container {
+    display: inline-block;
+    width: 240px;
+    height: 240px;
+    max-width: 25vw;
+    max-height: 25vw;
+    position: relative;
+    margin: 1vw;
+    background-size: cover;
+    margin-left: 0;
+    margin-right: 2vw;
+    transition: border-bottom 0.5s;
+    -webkit-transition: border-bottom 0.5s;
+    /* transition: color 0.5s ease-in;
+    -webkit-transition: color 0.5s ease-in; */
+}
+
+.member-container:hover {
+    cursor: pointer;
+    border-bottom: 7px solid #b63d31;
+}
+
+.member-container:hover span {
+    color: #b63d31;
+}
+
+.member-content {
+    background-size: cover;
+}
+
+.member-text {
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: auto;
+    background-color: rgba(0,0,0,0.7);
+    text-align: left;
+    color: white;
+    padding-left: 10px;
+    padding: 1vw;
+}
+
+.member-text-name {
+    font-size: 2vw;
+    font-weight: 450;
+}
+
+.member-text-description {
+    color: silver;
+}
+
+.full-square {
+    display: inline-block;
+    width: 240px;
+    height: 240px;
+    max-width: 25vw;
+    max-height: 25vw;
+    position: relative;
+    margin: 1vw;
+    background-color: #b63d31;
+    margin-left: 0;
+    margin-right: 2vw;
+}
+
+#largeImagePanel {
+    /* text-align: center; */
+    visibility: hidden;
+    position: fixed;
+    z-index: 100;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+#largeImage-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    display: inline-block;
+    border-bottom: 7px solid #b63d31;
+}
+  
+#largeImg {
+    display: inline-block;
+    margin-left: 0;
+    width: 30%;
+    right: 0;
+    top: 50%;
+    text-align: left;
+}
+
+#largeImg-textbox {
+    display: inline-block;
+    position: fixed;
+    /* background-color: white; */
+    color: black;
+    width: 60%;
+    height: 80%;
+    bottom: 0;
+    right: 0;
+}
+
+#largeImg-name {
+    font-size: 3vw;
+    font-weight: bold;
+    padding: 1vw;
+}
+
+#largeImg-title, #largeImg-description, #largeImg-linkedin {
+    padding: 1vw;
+}
