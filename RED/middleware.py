@@ -11,7 +11,7 @@ EXEMPT_URLS = [re.compile(settings.LOGIN_URL.lstrip('/'))]
 #ADD INTO LOGIN_EXEMPT_URLS
 if hasattr(settings, 'LOGIN_EXEMPT_URLS'):
     EXEMPT_URLS += [re.compile(url) for url in settings.LOGIN_EXEMPT_URLS]
-
+API_URL = 'api'
 class LoginRequiredMiddleware():
     
     def __init__(self, get_response):
@@ -27,6 +27,8 @@ class LoginRequiredMiddleware():
         assert hasattr(request, 'user')
         #lstrip is to remove slash /
         path = request.path_info.lstrip('/')
+        if (path[0:path.find('/')] == API_URL and not request.user.is_superuser):
+            return redirect(settings.LOGIN_REDIRECT_URL)
         
         #redirect user if not authenticated
         #if not request.user.is_authenticated:
@@ -48,8 +50,7 @@ class LoginRequiredMiddleware():
             
         
         elif request.user.is_authenticated or url_is_exempt:
-            return None
-            
+            return None   
         else:
             return redirect(settings.LOGIN_URL)
             print(path)
