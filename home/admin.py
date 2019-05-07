@@ -16,6 +16,10 @@ class ProjectAdmin (admin.ModelAdmin):
         return obj.description
 class StepOneInterestAdmin(admin.ModelAdmin):
     list_display = ('user',)
+class ProjectAdmin (admin.ModelAdmin):
+	list_display = ('name', 'description', 'modified_date', 'created_date')
+	def description(self, obj):
+	    return obj.description
 class TeamAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
     def description(self,obj):
@@ -28,3 +32,4 @@ admin.site.register (BigSection, BigSectionAdmin)
 admin.site.register (SubSection, SubSectionAdmin)
 admin.site.register (Project, ProjectAdmin)
 admin.site.register (Team, TeamAdmin)
+

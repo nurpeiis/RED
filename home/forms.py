@@ -5,7 +5,6 @@ from accounts.models import User
 from django.forms import CheckboxSelectMultiple
 from django.db.utils import OperationalError
 from better_filter_widget import BetterFilterWidget
-import home.widgets as widgets
 from django_select2.forms import Select2MultipleWidget
 import django_filters
 class StepOneInterestForm(forms.ModelForm):
@@ -23,3 +22,8 @@ class StepOneInterestForm(forms.ModelForm):
             #comma should be put at the end so that it will be tuple, if there is one variable to the element
         fields = ('user_interests', )
         widgets = {'sub': forms.CheckboxSelectMultiple}
+        
+class ProjectPostForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['name', 'subsection', 'members', 'description' ]
