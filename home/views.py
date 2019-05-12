@@ -12,9 +12,6 @@ class HomeNotAuthView(TemplateView):
     template_name = 'home/home.html'
 class HomeView(TemplateView):
     template_name = 'home/home.html'
-
-class AboutUsNotAuthView(TemplateView):
-    template_name = 'home/aboutus.html'
 class AboutUsView(TemplateView):
     template_name = 'home/aboutus.html'
 class StepOneView(TemplateView):

@@ -14,7 +14,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{% static 'img/slides/nivo/RED_DST.jpg' %}" alt="RED_DST" title="#caption-1" class="d-block w-100">
+        <img src="{% static 'img/slides/nivo/RED_DST.jpg' %}" alt="RED_DST" title="Learn More About Us" class="d-block w-100">
         <div class="carousel-caption d-block" style="background-color: rgba(0, 0, 0, 0.4);">
           <h2 style="color:white;"><strong>Learn More About Our Work</strong></h2>
                   <p>
@@ -28,7 +28,7 @@
           </div>
       </div>
       <div class="carousel-item">
-        <img src="{% static 'img/slides/nivo/HEChancellor.jpg' %}" alt="HE_Chancellor" title="#caption-2" class="d-block w-100">
+        <img src="{% static 'img/slides/nivo/HEChancellor.jpg' %}" alt="HE_Chancellor" title="Connect" class="d-block w-100">
         <div class="carousel-caption d-block" style="background-color: rgba(0, 0, 0, 0.4);">
           <h2 style="color:white;"><strong>Schedule a Meeting</strong></h2>
                   <p>
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{% static 'img/slides/nivo/GlobalPeer.jpg' %}" alt="" title="#caption-3" class="d-block w-100">
+        <img src="{% static 'img/slides/nivo/GlobalPeer.jpg' %}" alt="" title="Social Media" class="d-block w-100">
         <div class="carousel-caption d-block" style="background-color: rgba(0, 0, 0, 0.4);">
           <h2 style="color:white;"><strong>Visit our Social Media</strong></h2>
                   <p>
@@ -72,16 +72,16 @@
         </div>
         <div class= "col-sm-4 col-12">
           <center> 
-          <img width ="60" src="{% static 'img/registered_icons/step2meeting.png' %}" alt="" title="#caption-1" />              
+          <a href="{% url 'home:arrange_meeting' %}"><img width ="60" src="{% static 'img/registered_icons/step2meeting.png' %}" alt="" title="#caption-1" />              
           <h6 style="color: black;">Step 2</h6>
-          <p style="color: black;">Schedule a meeting with the CoLab</p>
+          <p style="color: black;">Schedule a meeting with the CoLab</p></a>
           </center>
         </div>
         <div class= "col-sm-4 col-12">
           <center> 
           <img width ="60" src="{% static 'img/registered_icons/projectstep3registered.gif' %}" alt="" title="#caption-1" />               
-          <h6 style="color: black;">Step 3</h6>
-          <p style="color: black;">Document project details on a project form</p>
+          <a href="{% url 'home:team' %}"><h6 style="color: black;">Step 3</h6>
+          <p style="color: black;">Document project details on a project form</p></a>
           </center>
         </div>
       </div>
@@ -110,16 +110,16 @@
         </div>
         <div class= "col-sm-3 col-6">
           <center> 
-          <img width ="60" src="{% static 'img/main_page_icons/step3.png' %}" alt="" title="#caption-1" />              
+          <a href="{% url 'accounts:register' %}"><img width ="60" src="{% static 'img/main_page_icons/step3.png' %}" alt="" title="#caption-1" />              
           <h6 style="color: black;">Step 3</h6>
-          <p style="color: black;">Fill out an interest form</p>
+          <p style="color: black;">Fill out an interest form</p></a>
           </center>
         </div>
         <div class= "col-sm-3 col-6">
           <center> 
-          <img width ="60" src="{% static 'img/main_page_icons/step4.png' %}" alt="" title="#caption-1" />               
+          <a href="{% url 'home:arrange_meeting' %}"><img width ="60" src="{% static 'img/main_page_icons/step4.png' %}" alt="" title="#caption-1" />               
           <h6 style="color: black;">Step 4</h6>
-          <p style="color: black;">Schedule a meeting and/or a campus tour</p>
+          <p style="color: black;">Schedule a meeting and/or a campus tour</p></a>
           </center>
         </div>
       </div>

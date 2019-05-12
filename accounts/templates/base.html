@@ -52,7 +52,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'home:about_us' %}">About Us</a>
             </li>
-             <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'home:team' %}">Team</a>
             </li>
             <li class="nav-item">
@@ -77,6 +77,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'home:about_us_notauth' %}">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:team_notauth' %}">Team</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'accounts:register' %}"><i class="icon-user" style="color: #CA5542;"></i> Sign up</a>
@@ -120,7 +123,11 @@
                   <br>
                   <br><a class="text-primary" href="{% url 'home:home' %}">Home</a>
                   <br><a class="text-primary" href="https://nyuad.nyu.edu">Learn about NYUAD</a>
-                  <br><a class="text-primary" href="https://www.instagram.com/p/Brm-RZGhSiJ/">Meet our team</a>
+                  {% if user.is_authenticated%}
+                  <br><a class="text-primary" href="{% url 'home:team' %}">Meet our team</a>
+                  {% else %}
+                  <br><a class="text-primary" href="{% url 'home:team_notauth' %}">Meet our team</a>
+                  {% endif %}
                   <br>
                   <br><strong>Feedback</strong>
                   <br>
@@ -138,7 +145,7 @@
       </div>
           <div class="row">
               <div class="col">
-                  © Copyright 2019 NYUAD Community & Education Engagement and Lab - All Rights Reserved        
+                  © Copyright 2019 NYUAD Community & Education Engagement Lab - All Rights Reserved        
                   <a href="https://www.facebook.com/NYUADEngage" data-placement="bottom" title="Facebook"><i class="fa fa-facebook icon-square"></i></a>
                   <a href="https://twitter.com/nyuadengage" data-placement="bottom" title="Twitter"><i class="fa fa-twitter icon-square"></i></a>
                   <a href="https://www.instagram.com/nyuadengage/" data-placement="bottom" title="Instagram"><i class="fa fa-instagram icon-square"></i></a>    
