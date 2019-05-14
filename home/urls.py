@@ -13,5 +13,5 @@ urlpatterns = [
     path('project-post/', ProjectPostView.as_view(), name = 'project_post'),
     path('project/<slug:slug>/', project_view, name = 'project' ),
     path('project/<slug:slug>/edit', project_update, name = 'project_update' ),
-    path('test',TestView.as_view(), name='test'),
+    path('test/',TestView.as_view(), name='test'),
 ]
