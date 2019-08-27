@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
 from home.viewset import ProjectListViewSet, project_detail
+
 router = routers.DefaultRouter()
 router.register('projects', ProjectListViewSet)
 urlpatterns = [
@@ -30,6 +31,6 @@ urlpatterns = [
     path('account/', include('accounts.urls', namespace = 'accounts')), #take the urls from accounts folder
     path('home/', include('home.urls', namespace = 'home')), #take the urls from accounts folder
     path('api/', include(router.urls)),
-    path('api/projects/<int:pk>/', project_detail),
+    path('api/projects/<int:pk>/', project_detail)
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

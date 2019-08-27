@@ -15,5 +15,5 @@ urlpatterns = [
      path('team-notauth/', TeamView.as_view(), name = 'team_notauth'),
     path('project-post/', ProjectPostView.as_view(), name = 'project_post'),
     path('project/<slug:slug>/', project_view, name = 'project' ),
-    path('project/<slug:slug>/edit', project_update, name = 'project_update' ),
+    path('project/<slug:slug>/edit', project_update, name = 'project_update' )
 ]
