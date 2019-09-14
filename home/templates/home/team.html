@@ -3,7 +3,7 @@
 {% load static %}
 {% block title %}
 <title>RED|Team</title>
-<script src="{% static 'js/team.js' %}"></script> 
+<script src="{% static 'js/team.js' %}"></script>
 <link href="{% static 'css/team.css' %}" rel="stylesheet" />
 {% endblock %}
 
@@ -19,39 +19,39 @@
         {% for member in queryset %}
 
             <div class="member-container" style="background-image: url( '{{ member.image.url }}' );" onClick="showImage('{{ member.image.url }}', '{{member.name}}', '{{member.title}}', '{{member.description}}', '{{member.linkedin}}')">
-                
-                <div class="member-text" width="100%" > 
+
+                <div class="member-text" width="100%" >
                     <span class="member-text-name"> {{member.name}} </span> <br>
                     <span class="member-text-description"> {{member.title}} </span>
                 </div>
-                    
+
             </div>
 
             {% if forloop.counter == 2 %}
 
             <div class="full-square"></div>
-        
+
             {% endif %}
 
             {% if forloop.counter == 4 %}
 
             <div class="full-square"></div>
-        
+
             {% endif %}
 
             {% if forloop.counter == 11 %}
 
             <div class="full-square"></div>
-        
+
             {% endif %}
 
             {% if forloop.counter == 12 %}
 
             <div class="full-square"></div>
-        
+
             {% endif %}
 
-    
+
         {% endfor %}
 
 
@@ -72,5 +72,5 @@
 
 
 
-  
+
 {% endblock %}

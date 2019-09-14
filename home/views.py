@@ -14,13 +14,14 @@ class HomeView(TemplateView):
     template_name = 'home/home.html'
 class AboutUsView(TemplateView):
     template_name = 'home/aboutus.html'
+
 class StepOneView(TemplateView):
     template_name = 'home/RED_form.html'
     def get(self, request):
         #blank if you refresh the page
         form = StepOneInterestForm()
         love = form.fields['user_interests'].queryset
-        args = {'form': form, }
+        args = {'form': form, 'queryset': love, }
         return render(request, self.template_name, args )
     def post(self, request):
         form = StepOneInterestForm(request.POST)
@@ -35,6 +36,7 @@ class StepOneView(TemplateView):
         else:
             messages.error(request, "No success")
         return render(request, self.template_name, {'form': form}, )
+
 class ArrangeMeeting(TemplateView):
     template_name = 'home/arrangemeeting.html'
 class StepTwoView(TemplateView):
@@ -54,7 +56,7 @@ def project_view(request, slug=None):
         "name": instance.name,
     }
     return render(request, template_name, context)
-       
+
 
 class ProjectPostView(TemplateView):
     template_name = "home/project_post.html"
@@ -99,7 +101,7 @@ def project_update(request, slug=None):
     context = {
         "instance":instance,
         "name": instance.name,
-        "form": form, 
+        "form": form,
     }
     return render(request, template_name, context)
 class TeamView(TemplateView):

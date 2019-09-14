@@ -39,6 +39,7 @@ class SubSection (models.Model):
     #it will return the name of the interest whenever StageOneInterests is called
     def __str__(self):
         return (self.name)
+
 class StepOneInterest (models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     user_interests = models.ManyToManyField(SubSection, default=None)
@@ -64,7 +65,7 @@ class Project(models.Model):
                                     verbose_name=_("name"))
     slug = models.SlugField(max_length=250, unique=True, null=False, blank=True,
                             verbose_name=_("slug"))
-    subsection = models.ManyToManyField(SubSection, default=None, 
+    subsection = models.ManyToManyField(SubSection, default=None,
                                     verbose_name=_("subsection"))
     description = models.TextField(null=False, blank=False,
                                     verbose_name=_("description"))
@@ -74,7 +75,7 @@ class Project(models.Model):
                                          verbose_name=_("modified date"))
     owner = models.ForeignKey(User, null=True, blank=True,
                               related_name="owned_projects", verbose_name=_("owner"), on_delete = models.CASCADE)
-    members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="projects", 
+    members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="projects",
                                     verbose_name=_("members"))
     total_milestones = models.IntegerField(null=True, blank=True,
                                            verbose_name=_("total milestones"))
@@ -106,7 +107,7 @@ class Project(models.Model):
         verbose_name = 'Project'
         ordering = ["created_date", "name"]
 
-        
+
 
     def __str__(self):
         #return not toople
@@ -115,7 +116,7 @@ class Project(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse("home:project", kwargs={"slug": self.slug})
-    
+
     def refresh_totals(self, save=True):
         now = timezone.now()
         self.totals_updated_datetime = now
