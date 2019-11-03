@@ -2,19 +2,38 @@
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
 {% load static %}
+
+
 {% block title %}
     <title>RED|STEP TWO</title>
+    <script src="{% static 'js/step_two.js' %}"></script>
+    <link  href="{% static 'css/step_two.css' %}" rel="stylesheet"/>
 {% endblock %}
+
 {% block body %}
     <div class = "container">
-        <div class = "row">
-            <div class = "col-8">
-                <h2> Manage Your Projects </h2>
-            </div>
-            <div class = "col-4">
-                <button onclick="location.href='{% url 'home:project_post' %}'" class="btn" style="background-color: #CB5542; color: white;">Create Project</button> 
-            </div>
+
+      <center>
+          <strong><h1 style="font-weight: 900">Step Two</h1></strong>
+          <h2>Manage Your Project</h2>
+          <br>
+      </center>
+
+      <div class = "row">
+        <div class = "col-8">
+          Step Two is to plan out your project following the SMART goals. You will be asked a set of questions to better organize your goals, set timeline, and report progress. All projects submitted to the page have open access to all RED participants in order to facilitate exchange of ideas and promote collaboration.
         </div>
+        <div class = "col-4 mainbtn">
+          <button onclick="location.href='{% url 'home:project_post' %}'" class="btn">Create Project</button>
+          <button onclick="location.href='{% url 'home:project_post' %}'" class="btn" id="manageProject">Manage Projects</button>
+        </div>
+      </div>
+
+      <div class="">
+
+      </div>
+
+
         {% for obj in object_list %}
             <div class = "row">
                 <div class = "col-8">
@@ -22,20 +41,8 @@
                     <p>{{ obj.description }}</p>
                     <p>{{ obj.slug }} </p>
                 </div>
-                {% if forloop.counter == 1 %}
-                    <div class = "col-4">
-                        <p>Step two is dedicated for planning your project in a SMART way </p>
-                    </div>
-                {% endif %}
-                {% if forloop.counter == 2 %}
-                    <div class = "col-4">
-                        <p> In order to see your projects and/or create new project press Manage projects</p>
-                    </div>
-                {% endif %}
             </div>
         {% endfor %}
     </div>
-     <center>
-        
-    </center>
+
 {% endblock %}
