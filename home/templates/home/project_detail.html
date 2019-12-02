@@ -2,12 +2,13 @@
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
 {% load static %}
+
 {% block title %}
     <title>RED|Projects</title>
 {% endblock %}
+
 {% block body %}
     <div class = "container">
-        <h1>My projects</h1>
         {% if messages %}
         <ul class = "messages">
             {% for message in messages %}
@@ -15,7 +16,10 @@
             {% endfor %}
         </ul>
         {% endif %}
-        <h2>{{ instance.name }}</h2>
+
+        <h1>{{ instance.name }}</h1>
+        <br>
+        <h3>Abstract</h3>
         <p>{{ instance.description }}</p>
         <p> {{ instance.slug }} </p>
         <button onclick="location.href='{{ instance.get_absolute_url }}edit'" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Edit Project</button>

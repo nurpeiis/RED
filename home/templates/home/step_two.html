@@ -20,39 +20,40 @@
       </center>
 
       <div class = "row">
-        <div class = "col-8">
+        <div class = "col-8" style="padding-left: 3vh;">
           Step Two is to plan out your project following the SMART goals. You will be asked a set of questions to better organize your goals, set timeline, and report progress. All projects submitted to the page have open access to all RED participants in order to facilitate exchange of ideas and promote collaboration.
         </div>
         <div class = "col-4 mainbtn">
           <button onclick="location.href='{% url 'home:project_post' %}'" class="btn">Create Project</button>
           <button onclick="location.href='{% url 'home:project_post' %}'" class="btn" id="manageProject">Manage Projects</button>
         </div>
-      </div>
+
 
       <div class="col-12 projectspace" id="workingOn">
         <div class="heading">
-          WORKING ON
+          <h3>WORKING ON</h3>
+
+          {% for obj in object_list %}
+              <button class = "projects" id="workingon{{forloop.counter}}" onclick="location.href='{{ obj.get_absolute_url }}'">
+                  <a href = "{{ obj.get_absolute_url }}">{{ obj.name }}</a>
+                  <p>{{ obj.description }}</p>
+                  <p>{{ obj.slug }} </p>
+              </button>
+          {% endfor %}
+
         </div>
 
       </div>
 
       <div class="col-12 projectspace" id="watching">
         <div class="heading">
-          WATCHING
+          <h3>INTERESTED</h3>
         </div>
 
       </div>
 
+</div>
 
-        {% for obj in object_list %}
-            <div class = "row">
-                <div class = "col-8">
-                    {{forloop.counter}} <a href = "{{ obj.get_absolute_url }}">{{ obj.name }}</a>
-                    <p>{{ obj.description }}</p>
-                    <p>{{ obj.slug }} </p>
-                </div>
-            </div>
-        {% endfor %}
     </div>
 
 {% endblock %}

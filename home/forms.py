@@ -10,6 +10,7 @@ import django_filters
 
 from django.contrib.auth.models import User
 from django.utils import timezone
+from bootstrap_datepicker_plus import DatePickerInput
 
 #customizing the ModelChoiceField made available in Django
 #to have a better control at the data being displayed in the template(s)
@@ -43,4 +44,7 @@ class StepOneInterestForm(forms.ModelForm):
 class ProjectPostForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['name', 'subsection', 'members', 'description' ]
+        fields = ['name','subsection','members','description','SMARTgoals','tasks','taskDue' ]
+        widgets = {
+            'taskDue': DatePickerInput(),
+        }

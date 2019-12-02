@@ -8,6 +8,8 @@ from django_pglocks import advisory_lock
 from django.utils.functional import cached_property
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
+# from django.contrib.auth.models import User
+# from django.contrib.auth.forms import UserChangeForm
 # Create your models here.
 
 #List of things that NYUAD can offer
@@ -69,14 +71,20 @@ class Project(models.Model):
                                     verbose_name=_("subsection"))
     description = models.TextField(null=False, blank=False,
                                     verbose_name=_("description"))
-    logo = models.FileField(upload_to ='image', blank = True, null=True, verbose_name=_("logo"))
-    created_date = models.DateTimeField(null=False, blank=False, auto_now_add=True, verbose_name=_("created date"))
-    modified_date = models.DateTimeField(null=False, blank=False,auto_now=True,
-                                         verbose_name=_("modified date"))
     owner = models.ForeignKey(User, null=True, blank=True,
                               related_name="owned_projects", verbose_name=_("owner"), on_delete = models.CASCADE)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="projects",
                                     verbose_name=_("members"))
+
+    SMARTgoals = models.TextField(null=True, blank=True, verbose_name=_("SMART goals"))
+    tasks = models.CharField(max_length=500,null=True,blank=True,verbose_name=_("tasks"))
+    taskDue = models.DateField(null=True,blank=True,verbose_name=_("duedate for each tasks"))
+
+    #to be utilized
+    logo = models.FileField(upload_to ='image', blank = True, null=True, verbose_name=_("logo"))
+    created_date = models.DateTimeField(null=False, blank=False, auto_now_add=True, verbose_name=_("created date"))
+    modified_date = models.DateTimeField(null=False, blank=False,auto_now=True,
+                                         verbose_name=_("modified date"))
     total_milestones = models.IntegerField(null=True, blank=True,
                                            verbose_name=_("total milestones"))
     total_story_points = models.FloatField(null=True, blank=True, verbose_name=_("total story points"))
@@ -136,6 +144,7 @@ def create_slug(instance, new_slug=None):
         #recursive function in a case if slug already exists
         return create_slug(instance, new_slug = new_slug)
     return slug
+
 def pre_save_project_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = create_slug(instance)

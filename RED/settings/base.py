@@ -4,14 +4,15 @@ from decouple import config, Csv
 import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-#STATIC_ROOT =  '../static/'
+STATIC_ROOT =  '../static/'
 STATIC_URL = '/static/'
 MEDIA_ROOT = '../media/'
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '..','static'),  # Here you tell django to look for a folder named 'static'
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, '..','static'),  # Here you tell django to look for a folder named 'static'
+# )
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -32,6 +33,10 @@ INSTALLED_APPS = [
     'crispy_forms', #required for bootstrap forms application
     'django_filters',
     'rest_framework',
+    'widget_tweaks',
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
+    'jquery',
 ]
 
 MIDDLEWARE = [

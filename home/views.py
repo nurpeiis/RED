@@ -7,6 +7,9 @@ from home.models import StepOneInterest, SubSection, Project, Team
 from django.db.utils import OperationalError
 from django.http import HttpResponse
 from django.contrib import messages
+from django.views import generic
+# from django.views.generic.edit import CreateView
+
 #view for not authorized users:
 class HomeNotAuthView(TemplateView):
     template_name = 'home/home.html'
@@ -14,6 +17,12 @@ class HomeView(TemplateView):
     template_name = 'home/home.html'
 class AboutUsView(TemplateView):
     template_name = 'home/aboutus.html'
+class TeamView(TemplateView):
+    template_name = "home/team.html"
+    def get(self,request):
+        queryset = Team.objects.all()
+        print(queryset)
+        return render(request, self.template_name, {'queryset': queryset})
 
 class StepOneView(TemplateView):
     template_name = 'home/RED_form.html'
@@ -39,6 +48,7 @@ class StepOneView(TemplateView):
 
 class ArrangeMeeting(TemplateView):
     template_name = 'home/arrangemeeting.html'
+
 class StepTwoView(TemplateView):
     template_name = 'home/step_two.html'
     def get(self, request):
@@ -48,6 +58,7 @@ class StepTwoView(TemplateView):
             "title": "Experiment"
         }
         return render(request, self.template_name, context)
+
 def project_view(request, slug=None):
     template_name = "home/project_detail.html"
     instance = get_object_or_404(Project, slug=slug)
@@ -83,6 +94,7 @@ class ProjectPostView(TemplateView):
         else:
             messages.error(request, "No success")
         return render(request, self.template_name, {'form': form}, )
+
 #create step 2 view to create new projects. Check following features:
 #1. Adding multiple users
 #2. Unique Slug
@@ -104,11 +116,3 @@ def project_update(request, slug=None):
         "form": form,
     }
     return render(request, template_name, context)
-class TeamView(TemplateView):
-    template_name = "home/team.html"
-    # def team(request):
-    #     return HttpResponse('team working')
-    def get(self,request):
-        queryset = Team.objects.all()
-        print(queryset)
-        return render(request, self.template_name, {'queryset': queryset})
