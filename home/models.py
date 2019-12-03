@@ -79,6 +79,7 @@ class Project(models.Model):
     SMARTgoals = models.TextField(null=True, blank=True, verbose_name=_("SMART goals"))
     tasks = models.CharField(max_length=500,null=True,blank=True,verbose_name=_("tasks"))
     taskDue = models.DateField(null=True,blank=True,verbose_name=_("duedate for each tasks"))
+    # attachments = models.FileField(null=True,blank=True,verbose_name=_("attachments"))
 
     #to be utilized
     logo = models.FileField(upload_to ='image', blank = True, null=True, verbose_name=_("logo"))
@@ -115,15 +116,14 @@ class Project(models.Model):
         verbose_name = 'Project'
         ordering = ["created_date", "name"]
 
-
-
     def __str__(self):
         #return not toople
         template = '{0.name} {0.description}'
         return template.format(self)
+
     def get_absolute_url(self):
         from django.urls import reverse
-        return reverse("home:project", kwargs={"slug": self.slug})
+        return reverse("home:project_detail", kwargs={"slug": self.slug})
 
     def refresh_totals(self, save=True):
         now = timezone.now()
@@ -132,6 +132,21 @@ class Project(models.Model):
             self.save(update_fields=[
                 'totals_updated_datetime',
             ])
+
+#projecttask in project as inlineformset
+#projecttask in formset to make it dynamic
+
+
+class ProjectTask(models.Model):
+    task = models.CharField(max_length=500,null=True,blank=True,verbose_name=_("tasks"))
+    due = models.DateField(null=True,blank=True,verbose_name=_("duedate"))
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    class Meta:
+        verbose_name = "project task"
+    def __str__(self):
+        return self.task
+
+
 #https://www.youtube.com/watch?v=Bmvd1O5pNIY
 def create_slug(instance, new_slug=None):
     slug = slugify(instance.name)

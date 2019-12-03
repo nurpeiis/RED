@@ -13,12 +13,13 @@
   <link href="{% static 'css/project_post.css' %}" rel="stylesheet"/>
 
   {% block extra_css%}
-    {{ form.media.css }}
+    {{ tasks.media.css }}
   {% endblock %}
 
 {% endblock %}
 
 {% block body %}
+
   <div class = "container">
 
     <center>
@@ -44,10 +45,23 @@
         </div>
       {% endfor %}
 
-
+      <!-- {{form.as_p}} -->
+      <h4>Here are the tasks!</h4>
+      {{tasks.as_p}}
+      <!-- rendering inline formset (tasks) -->
+      <!-- <h1>Projects</h1>
+      <form method="post">{% csrf_token %}
+          {{ form.as_p }}
+          <h2>tasks</h2>
+          {{ tasks.as_p }}
+          <input type="submit" value="Save">
+      </form> -->
 
       <button type="submit" class="btn ligncenter marginbot20" style="background-color: #CB5542; color: white; margin-top: 20px;">Submit</button>
     </form>
+
+
+
 
     <form class="form-inline my-2 my-lg-0">
       <input
@@ -70,5 +84,5 @@
 
 {% block extra_js %}
   {% bootstrap_javascript jquery='full' %}
-  {{ form.media.js }}
+  {{ tasks.media.js }}
 {% endblock %}

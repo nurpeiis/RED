@@ -2,178 +2,180 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
+    {% block head %}
+      {% load static %}
+      <!-- css -->
+      <link href="{% static 'css/bootstrap4.1.min.css' %}" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">
+      <link href="{% static 'css/style.css' %}" rel="stylesheet" />
 
-  {% block head %}
-  {% load static %}
-  <!-- css -->
-  <link  href="{% static 'css/bootstrap4.1.min.css' %}" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">
-  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+      {% block extra_css %}
+      {% endblock %}
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/REDLogo144.png' %}" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/REDLogo114.png' %}" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/REDLogo72.png' %}" />
-  <link rel="apple-touch-icon-precomposed" href="{% static 'ico/REDLogo.png' %}"/>
-  <link rel="shortcut icon" href="{% static 'ico/REDLogo.png' %}" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- Fav and touch icons -->
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/REDLogo144.png' %}" />
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/REDLogo114.png' %}" />
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/REDLogo72.png' %}" />
+      <link rel="apple-touch-icon-precomposed" href="{% static 'ico/REDLogo.png' %}"/>
+      <link rel="shortcut icon" href="{% static 'ico/REDLogo.png' %}" />
 
-  {% block extra_css %}
-  {% endblock %}
-  <!-- Required meta tags -->
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="keywords" content="Community, Engagement, University, Student, New York University Abu Dhabi, ">
+      <meta name="description" content="Connect the community of New York University Abu Dhabi with External Partners through effective matching of interception points">
+      <meta name="author" content="Nurpeiis Baimukan">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <meta charset="utf-8">
-  <meta name="keywords" content="Community, Engagement, University, Student, New York University Abu Dhabi, ">
-  <meta name="description" content="Connect the community of New York University Abu Dhabi with External Partners through effective matching of interception points">
-  <meta name="author" content="Nurpeiis Baimukan">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      {% block title %}
+        <title>RED|Base</title>
+      {% endblock %}
 
-  {% block title %}
-  <title>RED|Base</title>
-  {% endblock %}
+    {% endblock %}
+  </head>
 
-  {% endblock %}
-</head>
-<!--Navigation-->
-{% block navigation %}
-<!--Give the user logged in it would have different navigation bar than is he/she is not-->
-{% if user.is_authenticated %}
-<nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="{% url 'home:home' %}"><img src="{% static 'REDLogo.png' %}" width="40" height="30" alt=""/></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'home:home' %}">Home </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'home:form' %}">Step One</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'home:step_two' %}">Step Two</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'home:about_us' %}">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'home:team' %}">Team</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'accounts:edit_profile' %}"><i class="icon-user" style="color: #CA5542;"></i> Edit Profile</a></li>
-      </li>
-      <li>
-        <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a></li>
-      </li>
-    </ul>
-  </div>
-</nav>
-{% else %}
-<nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="{% url 'home:home_notauth' %}"><img src="{% static 'REDLogo.png' %}" width="40" height="30" alt=""/></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'home:home_notauth' %}">Home<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'home:about_us_notauth' %}">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'home:team_notauth' %}">Team</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'accounts:register' %}"><i class="icon-user" style="color: #CA5542;"></i> Sign up</a>
-      </li>
-      <li>
-        <a class="nav-link" href= "{% url 'accounts:login' %}">Sign in</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<!-- end header -->
-{% endif %}
-{% endblock %}
-<body>
-  {% block body %}
-  <h1>Base</h1>
-  {% endblock %}
-</body>
-<!-- Footer -->
-<footer>
-  {% block footer %}
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-3">
-        <p>
-          <strong>Address</strong>
-          <br>
-          <br>New York University Abu Dhabi, Saadiyat Island
-          <br>Abu Dhabi, UAE
-          <br>
-          <br>
-          <br><strong>Contacts</strong>
-          <br>
-          <i class="icon-phone"></i> +971 2 6288920 <br>
-          <i class="icon-envelope-alt"></i> nyuad.connect@nyu.edu
-        </p>
-      </div>
-      <div class="col-12 col-md-3">
-        <p>
-          <strong>Links</strong>
-          <br>
-          <br><a class="text-primary" href="{% url 'home:home' %}">Home</a>
-          <br><a class="text-primary" href="https://nyuad.nyu.edu">Learn about NYUAD</a>
-          {% if user.is_authenticated%}
-          <br><a class="text-primary" href="{% url 'home:team' %}">Meet our team</a>
-          {% else %}
-          <br><a class="text-primary" href="{% url 'home:team_notauth' %}">Meet our team</a>
-          {% endif %}
-          <br>
-          <br><strong>Feedback</strong>
-          <br>
-          <br>Please send us your ideas, bug reports, suggestions! Any feedback would be appreciated.
-        </p>
-      </div>
-      <div class="col-12 col-md-6">
-        <strong>You can find us here!</strong>
-        <br>
-        <br>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3629.911189464678!2d54.43186231498937!3d24.52315528421417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e5d807c903751%3A0x279d6f15d9e9e582!2sNYUAD+Office+of+Community+%26+Education+Engagement-+CoLab!5e0!3m2!1sen!2sae!4v1550386329053" width="300vw" height="225vh" frameborder="0" style="border:0" allowfullscreen></iframe>              </div>
-
+  <!--Navigation-->
+  {% block navigation %}
+    <!--Give the user logged in it would have different navigation bar than is he/she is not-->
+    {% if user.is_authenticated %}
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{% url 'home:home' %}"><img src="{% static 'REDLogo.png' %}" width="40" height="30" alt=""/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:home' %}">Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:form' %}">Step One</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:step_two' %}">Step Two</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:about_us' %}">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:team' %}">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:edit_profile' %}"><i class="icon-user" style="color: #CA5542;"></i> Edit Profile</a></li>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a></li>
+            </li>
+          </ul>
         </div>
-      </div>
+      </nav>
+
+    {% else %}
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{% url 'home:home_notauth' %}"><img src="{% static 'REDLogo.png' %}" width="40" height="30" alt=""/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home:home_notauth' %}">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:about_us_notauth' %}">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:team_notauth' %}">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:register' %}"><i class="icon-user" style="color: #CA5542;"></i> Sign up</a>
+            </li>
+            <li>
+              <a class="nav-link" href= "{% url 'accounts:login' %}">Sign in</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- end header -->
+    {% endif %}
+  {% endblock %}
+
+  <body>
+    {% block body %}
+    <h1>Base</h1>
+    {% endblock %}
+  </body>
+
+  <!-- Footer -->
+  <footer>
+    {% block footer %}
+    <div class="container">
       <div class="row">
-        <div class="col">
-          © Copyright 2019 NYUAD Community & Education Engagement Lab - All Rights Reserved
-          <a href="https://www.facebook.com/NYUADEngage" data-placement="bottom" title="Facebook"><i class="fa fa-facebook icon-square"></i></a>
-          <a href="https://twitter.com/nyuadengage" data-placement="bottom" title="Twitter"><i class="fa fa-twitter icon-square"></i></a>
-          <a href="https://www.instagram.com/nyuadengage/" data-placement="bottom" title="Instagram"><i class="fa fa-instagram icon-square"></i></a>
+        <div class="col-12 col-md-3">
+          <p>
+            <strong>Address</strong>
+            <br>
+            <br>New York University Abu Dhabi, Saadiyat Island
+            <br>Abu Dhabi, UAE
+            <br>
+            <br>
+            <br><strong>Contacts</strong>
+            <br>
+            <i class="icon-phone"></i> +971 2 6288920 <br>
+            <i class="icon-envelope-alt"></i> nyuad.connect@nyu.edu
+          </p>
+        </div>
+        <div class="col-12 col-md-3">
+          <p>
+            <strong>Links</strong>
+            <br>
+            <br><a class="text-primary" href="{% url 'home:home' %}">Home</a>
+            <br><a class="text-primary" href="https://nyuad.nyu.edu">Learn about NYUAD</a>
+            {% if user.is_authenticated%}
+            <br><a class="text-primary" href="{% url 'home:team' %}">Meet our team</a>
+            {% else %}
+            <br><a class="text-primary" href="{% url 'home:team_notauth' %}">Meet our team</a>
+            {% endif %}
+            <br>
+            <br><strong>Feedback</strong>
+            <br>
+            <br>Please send us your ideas, bug reports, suggestions! Any feedback would be appreciated.
+          </p>
+        </div>
+        <div class="col-12 col-md-6">
+          <strong>You can find us here!</strong>
+          <br>
+          <br>
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3629.911189464678!2d54.43186231498937!3d24.52315528421417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e5d807c903751%3A0x279d6f15d9e9e582!2sNYUAD+Office+of+Community+%26+Education+Engagement-+CoLab!5e0!3m2!1sen!2sae!4v1550386329053" width="300vw" height="225vh" frameborder="0" style="border:0" allowfullscreen></iframe>              </div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            © Copyright 2019 NYUAD Community & Education Engagement Lab - All Rights Reserved
+            <a href="https://www.facebook.com/NYUADEngage" data-placement="bottom" title="Facebook"><i class="fa fa-facebook icon-square"></i></a>
+            <a href="https://twitter.com/nyuadengage" data-placement="bottom" title="Twitter"><i class="fa fa-twitter icon-square"></i></a>
+            <a href="https://www.instagram.com/nyuadengage/" data-placement="bottom" title="Instagram"><i class="fa fa-instagram icon-square"></i></a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  {% endblock %}
-</footer>
+    {% endblock %}
+  </footer>
 
-{% block js %}
-<!-- javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="{% static 'js/bootstrap4.1.min.js' %}"></script>
-<script src="{% static 'js/custom.js' %}"></script>
-<script src="{% static 'js/customselect2.js' %}"></script>
-<!-- <script src="{% static 'js/bootstrap4.1.min.js' %}"></script>-->
-<!-- Template Custom JavaScript File -->
-{% block extra_js %}
-{% endblock %}
-{% endblock %}
+  {% block js %}
+    <!-- javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap4.1.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/customselect2.js' %}"></script>
+    <!-- <script src="{% static 'js/bootstrap4.1.min.js' %}"></script>-->
+    <!-- Template Custom JavaScript File -->
+    {% block extra_js %}
+    {% endblock %}
+  {% endblock %}
 </html>

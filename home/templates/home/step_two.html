@@ -6,8 +6,10 @@
 
 {% block title %}
     <title>RED|STEP TWO</title>
-    <script src="{% static 'js/step_two.js' %}"></script>
-    <link  href="{% static 'css/step_two.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block extra_css %}
+  <link  href="{% static 'css/step_two.css' %}" rel="stylesheet"/>
 {% endblock %}
 
 {% block body %}
@@ -56,4 +58,8 @@
 
     </div>
 
+{% endblock %}
+
+{% block extr_js %}
+  <script src="{% static 'js/step_two.js' %}"></script>
 {% endblock %}
